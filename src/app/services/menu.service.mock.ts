@@ -16,6 +16,6 @@ export class MenuService implements IMenuService {
         duration: 60,
         tags: ['Vegan']
       }
-    ])
+    ]);
   }
 }

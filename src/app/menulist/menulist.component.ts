@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class MenulistComponent implements OnInit {
 
-  menus: Observable<Menu[]>
+  menus: Observable<Menu[]>;
 
   constructor(private menuService: MenuService) {
-    this.menus = menuService.getMenus()
+    this.menus = menuService.getMenus();
   }
 
   ngOnInit(): void {}

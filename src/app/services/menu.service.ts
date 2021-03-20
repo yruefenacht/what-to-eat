@@ -17,7 +17,7 @@ export class MenuService implements IMenuService {
     this.menus = this.ref.valueChanges();
   }
 
-  getMenus() {
+  getMenus(): Observable<Menu[]> {
     return this.menus;
   }
 }
