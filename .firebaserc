@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "what-to-eat-12ae4": {
+      "hosting": {
+        "what-to-eat": [
+          "what-to-eat-12ae4"
+        ]
+      }
+    }
+  }
+}
