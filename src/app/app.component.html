@@ -1,12 +1,5 @@
-<div *ngIf="menus; else elseBlock">
-<ul>
-  <li class="text" *ngFor="let menu of menus | async">
-    {{ menu.title }}
-  </li>
-</ul>
-</div>
-<ng-template #elseBlock>
-  No Items
-</ng-template>
+<header>header</header>
 
 <router-outlet></router-outlet>
+
+<footer>footer</footer>
