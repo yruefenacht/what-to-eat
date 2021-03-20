@@ -6,11 +6,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { MenulistComponent } from './menulist/menulist.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenulistComponent
+    MenulistComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
