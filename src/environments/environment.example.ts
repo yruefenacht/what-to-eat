@@ -1,5 +1,6 @@
 export const environment = {
-    production: false,
+  production: false,
+  firebase: {
     apiKey: "<key>",
     authDomain: "<project>.firebaseapp.com",
     projectId: "<projectId>",
@@ -7,4 +8,5 @@ export const environment = {
     messagingSenderId: "<senderId>",
     appId: "<addId>",
     measurementId: "<measurementId>"
-  };
+  }
+};
