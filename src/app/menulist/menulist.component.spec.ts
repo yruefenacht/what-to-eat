@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MenulistComponent } from './menulist.component';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../../environments/environment';
+import { MenuService } from '../services/menu.service';
+import { MenuService as MenuMockService } from '../services/menu.service.mock';
 
 describe('MenulistComponent', () => {
   let component: MenulistComponent;
@@ -15,9 +12,8 @@ describe('MenulistComponent', () => {
       declarations: [
         MenulistComponent
       ],
-      imports: [
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule
+      providers: [
+        { provide: MenuService, useClass: MenuMockService }
       ]
     })
     .compileComponents();
