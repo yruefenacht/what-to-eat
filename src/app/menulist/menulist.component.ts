@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Menu } from '../model/menu.model';
 
 @Component({
   selector: 'app-menulist',
@@ -9,12 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class MenulistComponent implements OnInit {
 
-  menus: Observable<any[]>
-  
+  ref: AngularFirestoreCollection<Menu>
+  menus: Observable<Menu[]>
+
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.menus = this.firestore.collection('Menu').valueChanges()
+    this.ref = this.firestore.collection('Menu')
+    this.menus = this.ref.valueChanges()
   }
 
 }
