@@ -55,11 +55,11 @@ footer {
     a {
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 0.7em;
-      font-weight: 600;
+      font-size: 0.72em;
+      font-weight: 700;
       letter-spacing: 0.2em;
       color: #f1f1f1;
-      border-bottom: 1px dotted #dee3e0;
+      border-bottom: 1px dotted #aaa;
     }
   }
   &__separator {
@@ -79,9 +79,10 @@ footer {
     height: 1px;
     background: #dee3e0;
     opacity: 0.35;
-    margin-top: 0.3em;
+    margin-top: 0.2em;
   }
   &__line--short {
-    width: 50px;
+    width: 40px;
+    opacity: 0.2;
   }
 }
