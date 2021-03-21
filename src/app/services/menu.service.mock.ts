@@ -13,6 +13,7 @@ export class MenuService implements IMenuService {
       {
         title: 'Ravioli',
         image: 'src/to/img',
+        ingredients: ['Reis', 'Spinat'],
         duration: 60,
         tags: ['Vegan']
       }

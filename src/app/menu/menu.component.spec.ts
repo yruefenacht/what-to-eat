@@ -16,6 +16,13 @@ describe('MenuComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
+    component.menu = {
+      title: 'Spaghetti',
+      image: 'src/to/img',
+      ingredients: ['Nudeln', 'Sauce'],
+      duration: 60,
+      tags: ['Vegan']
+    };
     fixture.detectChanges();
   });
 

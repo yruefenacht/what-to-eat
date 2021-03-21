@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenulistComponent } from './menulist.component';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
+import { MenuComponent } from '../menu/menu.component';
 
 describe('MenulistComponent', () => {
   let component: MenulistComponent;
@@ -10,7 +11,8 @@ describe('MenulistComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        MenulistComponent
+        MenulistComponent,
+        MenuComponent
       ],
       providers: [
         { provide: MenuService, useClass: MenuMockService }
