@@ -1,0 +1,22 @@
+.menu {
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  border-bottom: 1px solid #dee3e0;
+}
+
+.menu__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 2em;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/what-to-eat-12ae4.appspot.com/o/menus%2Fpangasius.jpg?alt=media&token=7e44e464-b27a-4138-9f43-61391aa2767c);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu__title {
+  font-size: 1.5em;
+  color: #444;
+}

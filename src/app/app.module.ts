@@ -7,12 +7,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenulistComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

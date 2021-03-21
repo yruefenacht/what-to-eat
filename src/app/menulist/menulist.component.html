@@ -1,10 +1,12 @@
-<div *ngIf="menus; else elseBlock">
-  <ul>
-    <li class="text" *ngFor="let menu of menus | async">
-      {{ menu.title }}
-    </li>
-  </ul>
-</div>
-<ng-template #elseBlock>
-  No Items
-</ng-template>
+<section>
+  <div class="menus" *ngIf="menus; else noMenus">
+    <app-menu *ngFor="let menu of menus | async"
+      [menu]="menu">
+    </app-menu>
+  </div>
+  <ng-template #noMenus>
+    <div class="no-menus">
+      No Menus
+    </div>
+  </ng-template>
+</section>

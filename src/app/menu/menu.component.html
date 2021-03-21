@@ -1,0 +1,19 @@
+<div class="menu">
+  <div class="menu__image"></div>
+  <span>
+    <div class="menu__title">{{ menu.title }}</div>
+    <div class="menu__ingredients">
+      <div class="menu__ingredients__item" *ngFor="let ingredient of menu.ingredients">
+        {{ ingredient }}
+      </div>
+    </div>
+    <span>
+      <div class="menu__duration">{{ menu.duration }} min</div>
+      <div class="menu__tags">
+        <div class="menu__tags__item" *ngFor="let tag of menu.tags">
+          {{ tag }}
+        </div>
+      </div>
+    </span>
+  </span>
+</div>
