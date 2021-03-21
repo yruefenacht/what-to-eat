@@ -1,0 +1,35 @@
+header {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: #565656;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  margin-top: 2em;
+  &__line {
+    width: 80px;
+    height: 1px;
+    background: #dee3e0;
+  }
+  &__square {
+    width: 10px;
+    height: 10px;
+    background: #dee3e0;
+    transform: rotate(45deg);
+  }
+}
