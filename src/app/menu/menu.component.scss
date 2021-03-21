@@ -1,22 +1,63 @@
 .menu {
-  width: 100%;
+  width: 50vw;
   padding: 2em;
   display: flex;
+  justify-content: flex-start;
   border-bottom: 1px solid #dee3e0;
+
+  ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 30px;
+  }
+}
+
+.menu:last-of-type {
+  border-bottom: none;
 }
 
 .menu__image {
   width: 120px;
   height: 120px;
+  object-fit: cover;
   border-radius: 50%;
   margin-right: 2em;
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/what-to-eat-12ae4.appspot.com/o/menus%2Fpangasius.jpg?alt=media&token=7e44e464-b27a-4138-9f43-61391aa2767c);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .menu__title {
-  font-size: 1.5em;
+  font-size: 1.65em;
+  font-weight: 400;
   color: #444;
+}
+
+.menu__ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.75em 0;
+  &__item {
+    color: #a6a6a6;
+    margin-right: 0.75em;
+    margin-top: 0.4em;
+  }
+}
+
+.menu__duration {
+  margin-right: 1em;
+  color: #6a6a6a;
+  &--icon {
+    height: 25px;
+    margin-right: 0.5em;
+  }
+}
+
+.menu__tags {
+  display: flex;
+  &__item {
+    color: #eee;
+    background: #9e9d89;
+    padding: 0.5em 0.75em;
+    margin: 0.5em 0.5em 0.5em 0;
+    border-radius: 20px;
+  }
 }
