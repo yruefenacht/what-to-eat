@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { of } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Menu } from '../models/menu.model';
 import { IMenuService } from './menu.service.interface';
@@ -18,6 +19,18 @@ export class MenuService implements IMenuService {
   }
 
   getMenus(): Observable<Menu[]> {
-    return this.menus;
+    return of(
+      Array(100)
+        .fill(1)
+        .map(el => {
+          return {
+            title: 'Ravioli',
+            image: 'src/to/img',
+            ingredients: ['Reis', 'Spinat'],
+            duration: 60,
+            tags: ['Vegan']
+          };
+        })
+    );
   }
 }

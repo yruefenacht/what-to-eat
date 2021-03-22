@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+cdk-virtual-scroll-viewport {
+  height: 60vh;
+}
+
 .menus {
   max-width: 1200px;
   margin: 0 auto;

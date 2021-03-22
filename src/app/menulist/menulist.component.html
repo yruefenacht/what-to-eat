@@ -1,9 +1,11 @@
 <section>
-  <div class="menus" *ngIf="menus; else noMenus">
-    <app-menu *ngFor="let menu of menus | async"
-      [menu]="menu">
-    </app-menu>
-  </div>
+  <cdk-virtual-scroll-viewport itemSize="190">
+    <div class="menus" *ngIf="menus; else noMenus">
+      <app-menu *cdkVirtualFor="let menu of menus | async"
+        [menu]="menu">
+      </app-menu>
+    </div>
+  </cdk-virtual-scroll-viewport>
   <ng-template #noMenus>
     <div class="no-menus">
       No Menus

@@ -3,6 +3,7 @@ import { MenulistComponent } from './menulist.component';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 import { MenuComponent } from '../menu/menu.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 describe('MenulistComponent', () => {
   let component: MenulistComponent;
@@ -13,6 +14,9 @@ describe('MenulistComponent', () => {
       declarations: [
         MenulistComponent,
         MenuComponent
+      ],
+      imports: [
+        ScrollingModule
       ],
       providers: [
         { provide: MenuService, useClass: MenuMockService }
