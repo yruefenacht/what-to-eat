@@ -9,6 +9,7 @@ import { Menu } from '../models/menu.model';
 export class MenuComponent implements OnInit {
 
   @Input() menu: Menu;
+  @Input() isLast: boolean;
 
   constructor() { }
 
