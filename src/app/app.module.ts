@@ -13,7 +13,6 @@ import { MenuComponent } from './menu/menu.component';
 
 import { environment } from '../environments/environment';
 
-
 @NgModule({
   declarations: [
     AppComponent,

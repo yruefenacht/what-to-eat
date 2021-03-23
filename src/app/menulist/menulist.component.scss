@@ -5,7 +5,7 @@
 }
 
 cdk-virtual-scroll-viewport {
-  height: 60vh;
+  height: calc(100vh - 200px);
 }
 
 .menus {
@@ -24,4 +24,16 @@ cdk-virtual-scroll-viewport {
   font-weight: bold;
   letter-spacing: 0.25em;
   text-transform: uppercase;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #222831;
 }
