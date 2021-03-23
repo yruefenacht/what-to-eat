@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { MenulistComponent } from './menulist/menulist.component';
@@ -12,13 +13,15 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { environment } from '../environments/environment';
+import { MenuformComponent } from './menuform/menuform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenulistComponent,
     PagenotfoundComponent,
-    MenuComponent
+    MenuComponent,
+    MenuformComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    ScrollingModule
+    ScrollingModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

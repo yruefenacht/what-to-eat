@@ -9,12 +9,16 @@ cdk-virtual-scroll-viewport {
 }
 
 .menus {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  &--section {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 .no-menus {
@@ -37,4 +41,10 @@ cdk-virtual-scroll-viewport {
 ::-webkit-scrollbar-thumb {
   background-color: #222831;
   border-radius: 10px;
+}
+
+.add-menu-btn {
+  @include flex-center();
+  position: absolute; bottom: 3em; right: 3em;
+  color: white;
 }

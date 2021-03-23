@@ -1,4 +1,4 @@
-<section>
+<section class="menus--section">
   <cdk-virtual-scroll-viewport itemSize="190">
     <div class="menus" *ngIf="menus; else noMenus">
       <app-menu *cdkVirtualFor="let menu of menus | async; last as isLast"
@@ -12,4 +12,7 @@
       No Menus
     </div>
   </ng-template>
+  <button class="add-menu-btn" mat-fab color="accent" routerLink="/add-menu">
+    <img alt="+" src="../../assets/images/add_icon.png">
+  </button>
 </section>
