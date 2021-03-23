@@ -8,19 +8,25 @@ import { IMenuService } from './menu.service.interface';
 })
 export class MenuService implements IMenuService {
 
+  menus: Menu[] = Array(5)
+    .fill(1)
+    .map(el => {
+      return {
+        title: 'Ravioli',
+        image: 'src/to/img',
+        ingredients: ['Reis', 'Spinat'],
+        duration: 60,
+        tags: ['Vegan']
+      };
+    });
+
   getMenus(): Observable<Menu[]> {
-    return of(
-      Array(5)
-        .fill(1)
-        .map(el => {
-          return {
-            title: 'Ravioli',
-            image: 'src/to/img',
-            ingredients: ['Reis', 'Spinat'],
-            duration: 60,
-            tags: ['Vegan']
-          };
-        })
-    );
+    return of(this.menus);
+  }
+
+  insertMenu(menu: Menu): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      resolve(this.menus.push(menu));
+    });
   }
 }

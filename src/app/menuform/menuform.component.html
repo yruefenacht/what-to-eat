@@ -1,1 +1,9 @@
-<p>menuform works!</p>
+<form [formGroup]="this.form">
+  <input
+    type="text"
+    placeholder="Menu Title"
+    class="input-field"
+    formControlName="title"
+  />
+  <button (click)="onSubmit()">Submit</button>
+</form>

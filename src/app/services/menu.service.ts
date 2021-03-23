@@ -9,10 +9,17 @@ import { IMenuService } from './menu.service.interface';
 })
 export class MenuService implements IMenuService {
 
-  constructor(private firestore: AngularFirestore) { }
+  ref: AngularFirestoreCollection<Menu>;
+
+  constructor(private firestore: AngularFirestore) {
+    this.ref = this.firestore.collection('Menu');
+  }
 
   getMenus(): Observable<Menu[]> {
-    const ref: AngularFirestoreCollection<Menu> = this.firestore.collection('Menu');
-    return ref.valueChanges();
+    return this.ref.valueChanges();
+  }
+
+  insertMenu(menu: Menu): Promise<any> {
+    return this.ref.add(menu);
   }
 }
