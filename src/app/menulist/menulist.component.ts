@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../services/menu.service.mock';
+import { MenuService } from '../services/menu.service';
 import { Menu } from '../models/menu.model';
 import { Observable } from 'rxjs';
 
@@ -12,10 +12,10 @@ export class MenulistComponent implements OnInit {
 
   menus: Observable<Menu[]>;
 
-  constructor(private menuService: MenuService) {
-    this.menus = menuService.getMenus();
-  }
+  constructor(private menuService: MenuService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menus = this.menuService.getMenus();
+  }
 
 }

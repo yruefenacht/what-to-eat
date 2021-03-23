@@ -15,8 +15,7 @@ export class MenuformComponent implements OnInit {
 
   constructor(private menuService: MenuService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onSubmit(): void {
     this.menuService.insertMenu({
