@@ -6,6 +6,7 @@
 
 header {
   @include flex-center();
+  position: relative;
   flex-direction: column;
   width: 100%;
   height: 200px;
@@ -36,5 +37,30 @@ h1 {
     height: 10px;
     background: #dee3e0;
     transform: rotate(45deg);
+  }
+}
+
+.refs {
+  @include flex-center();
+  position: absolute; right: 0;
+  height: 100%;
+  margin-right: 2.5em;
+  &__ref {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.7em;
+    font-weight: 400;
+    a {
+      border-bottom: 1px dotted #565656;
+      text-decoration: none;
+      color: white;
+      opacity: 0.95;
+    }
+  }
+  &__separator {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    margin: 0 1em;
   }
 }

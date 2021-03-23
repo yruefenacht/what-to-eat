@@ -10,27 +10,10 @@ import { IMenuService } from './menu.service.interface';
 })
 export class MenuService implements IMenuService {
 
-  ref: AngularFirestoreCollection<Menu>;
-  menus: Observable<Menu[]>;
-
-  constructor(private firestore: AngularFirestore) {
-    this.ref = this.firestore.collection('Menu');
-    this.menus = this.ref.valueChanges();
-  }
+  constructor(private firestore: AngularFirestore) { }
 
   getMenus(): Observable<Menu[]> {
-    return of(
-      Array(100)
-        .fill(1)
-        .map(el => {
-          return {
-            title: 'Ravioli',
-            image: 'src/to/img',
-            ingredients: ['Reis', 'Spinat'],
-            duration: 60,
-            tags: ['Vegan']
-          };
-        })
-    );
+    let ref: AngularFirestoreCollection<Menu> = this.firestore.collection('Menu');
+    return ref.valueChanges();
   }
 }

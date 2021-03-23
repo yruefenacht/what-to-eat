@@ -9,14 +9,18 @@ import { IMenuService } from './menu.service.interface';
 export class MenuService implements IMenuService {
 
   getMenus(): Observable<Menu[]> {
-    return of([
-      {
-        title: 'Ravioli',
-        image: 'src/to/img',
-        ingredients: ['Reis', 'Spinat'],
-        duration: 60,
-        tags: ['Vegan']
-      }
-    ]);
+    return of(
+      Array(5)
+        .fill(1)
+        .map(el => {
+          return {
+            title: 'Ravioli',
+            image: 'src/to/img',
+            ingredients: ['Reis', 'Spinat'],
+            duration: 60,
+            tags: ['Vegan']
+          };
+        })
+    );
   }
 }
