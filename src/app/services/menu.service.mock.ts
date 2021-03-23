@@ -29,4 +29,12 @@ export class MenuService implements IMenuService {
       resolve(this.menus.push(menu));
     });
   }
+
+  updateMenu(id: string, menu: Menu): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const i = this.menus.findIndex((v, i) => v.title === id);
+      this.menus[i] = menu;
+      resolve();
+    });
+  }
 }
