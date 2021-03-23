@@ -5,13 +5,19 @@
 }
 
 header {
-  @include flex-center();
-  position: relative;
-  flex-direction: column;
   width: 100%;
   height: 200px;
   background: #121013;
   color: white;
+  & > span {
+    @include flex-center();
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+  }
 }
 
 h1 {
@@ -51,7 +57,7 @@ h1 {
     font-size: 0.7em;
     font-weight: 400;
     a {
-      border-bottom: 1px dotted #565656;
+      border-bottom: 1px dotted #333;
       text-decoration: none;
       color: white;
       opacity: 0.95;
@@ -60,7 +66,7 @@ h1 {
   &__separator {
     width: 1px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.5);
     margin: 0 1em;
   }
 }

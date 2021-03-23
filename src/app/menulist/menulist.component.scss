@@ -47,4 +47,7 @@ cdk-virtual-scroll-viewport {
   @include flex-center();
   position: absolute; bottom: 3em; right: 3em;
   color: white;
+  img {
+    height: 30px;
+  }
 }

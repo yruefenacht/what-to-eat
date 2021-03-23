@@ -6,8 +6,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: '', component: MenulistComponent },
-  { path: 'add-menu', component: MenuformComponent },
-  { path: 'edit-menu', component: MenuformComponent },
+  { path: 'new', component: MenuformComponent },
+  { path: 'edit/:id', component: MenuformComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

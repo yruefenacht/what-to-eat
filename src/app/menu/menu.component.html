@@ -1,4 +1,4 @@
-<div class="menu" [class.menu--last]="isLast">
+<div class="menu" [class.menu--isLast]="isLast">
   <img class="menu__image" [src]="menu.image">
   <div>
     <ul>
@@ -22,5 +22,10 @@
         </div>
       </li>
     </ul>
+  </div>
+  <div class="menu--section-right">
+    <button mat-icon-button>
+      <mat-icon aria-label="Edit Todo">edit</mat-icon>
+    </button>
   </div>
 </div>
