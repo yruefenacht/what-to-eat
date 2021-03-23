@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../services/menu.service';
+import { MenuService } from '../services/menu.service.mock';
 import { Menu } from '../models/menu.model';
 import { Observable } from 'rxjs';
 

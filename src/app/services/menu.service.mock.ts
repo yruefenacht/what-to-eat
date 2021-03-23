@@ -8,11 +8,11 @@ import { IMenuService } from './menu.service.interface';
 })
 export class MenuService implements IMenuService {
 
-  menus: Menu[] = Array(5)
+  menus: Menu[] = Array(10)
     .fill(1)
     .map(el => {
       return {
-        title: 'Ravioli',
+        title: 'Ravioli' + Math.random(),
         image: 'src/to/img',
         ingredients: ['Reis', 'Spinat'],
         duration: 60,
@@ -32,8 +32,15 @@ export class MenuService implements IMenuService {
 
   updateMenu(id: string, menu: Menu): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      const i = this.menus.findIndex((v, i) => v.title === id);
-      this.menus[i] = menu;
+      const index = this.menus.findIndex((v, i) => v.title === id);
+      this.menus[index] = menu;
+      resolve();
+    });
+  }
+
+  deleteMenu(id: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.menus = this.menus.filter(v => v.title !== id);
       resolve();
     });
   }

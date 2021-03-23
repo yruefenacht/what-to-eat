@@ -27,4 +27,8 @@ export class MenuService implements IMenuService {
   updateMenu(id: string, menu: Menu): Promise<void> {
     return this.ref.doc(id).update(menu);
   }
+
+  deleteMenu(id: string): Promise<void> {
+    return this.ref.doc(id).delete();
+  }
 }
