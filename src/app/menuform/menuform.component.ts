@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -38,27 +38,27 @@ export class MenuformComponent implements OnInit {
     this.menuform.valueChanges.subscribe(console.log);
   }
 
-  get title() {
+  get title(): AbstractControl {
     return this.menuform.get('title');
   }
 
-  get image() {
+  get image(): AbstractControl {
     return this.menuform.get('image');
   }
 
-  get ingredients() {
+  get ingredients(): AbstractControl {
     return this.menuform.get('ingredients');
   }
 
-  get duration() {
+  get duration(): AbstractControl {
     return this.menuform.get('duration');
   }
 
-  get tags() {
+  get tags(): AbstractControl {
     return this.menuform.get('tags');
   }
 
-  async submitHandler() {
+  async submitHandler(): Promise<void> {
 
     this.loading = true;
 
