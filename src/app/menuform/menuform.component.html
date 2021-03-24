@@ -1,9 +1,39 @@
-<form [formGroup]="this.form">
-  <input
-    type="text"
-    placeholder="Menu Title"
-    class="input-field"
-    formControlName="title"
-  />
-  <button (click)="onSubmit()">Submit</button>
+<h2>Add new menu</h2>
+
+<form [formGroup]="menuform" (ngSubmit)="submitHandler()">
+
+  <mat-form-field>
+    <input matInput placeholder="Title" formControlName="title">
+    <mat-error *ngIf="title.invalid && title.touched">
+      Please only letters in title
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Ingredients" formControlName="ingredients">
+    <mat-error *ngIf="ingredients.invalid && ingredients.touched">
+      Please add ingredients
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Duration [min]" [value]="0" formControlName="duration">
+    <mat-error *ngIf="duration.errors?.min && duration.touched">
+      Duration is unrealistically small
+    </mat-error>
+    <mat-error *ngIf="duration.errors?.max && duration.touched">
+      Duration is unrealistically high
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Tags" formControlName="tags">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Upload Image" formControlName="image">
+  </mat-form-field>
+  
+  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
+
 </form>

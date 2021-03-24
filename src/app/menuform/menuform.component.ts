@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -9,28 +9,69 @@ import { MenuService } from '../services/menu.service';
 })
 export class MenuformComponent implements OnInit {
 
-  form = new FormGroup({
-    title: new FormControl('')
-  });
+  menuform: FormGroup;
+  loading = false;
+  success = false;
 
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void { }
-
-  onSubmit(): void {
-    this.menuService.insertMenu({
-      title: this.form.value.title,
-      image: '',
-      ingredients: [],
-      duration: 0,
+  ngOnInit(): void {
+    this.menuform = this.formBuilder.group({
+      title: ['', [
+        Validators.required
+      ]],
+      image: ['', [
+        Validators.required
+      ]],
+      ingredients: [[], [
+        Validators.required
+      ]],
+      duration: [null, [
+        Validators.required,
+        Validators.maxLength(3),
+        Validators.min(5),
+        Validators.max(999)
+      ]],
       tags: []
-    })
-    .then(res => {
-      this.form.reset();
-    })
-    .catch(e => {
-      console.log(e);
     });
+
+    this.menuform.valueChanges.subscribe(console.log);
+  }
+
+  get title() {
+    return this.menuform.get('title');
+  }
+
+  get image() {
+    return this.menuform.get('image');
+  }
+
+  get ingredients() {
+    return this.menuform.get('ingredients');
+  }
+
+  get duration() {
+    return this.menuform.get('duration');
+  }
+
+  get tags() {
+    return this.menuform.get('tags');
+  }
+
+  async submitHandler() {
+
+    this.loading = true;
+
+    const formValue = this.menuform.value;
+
+    try {
+      await this.menuService.insertMenu(formValue);
+      this.success = true;
+    } catch (err) {
+      console.log(err);
+    }
+
+    this.loading = false;
   }
 
 }

@@ -7,6 +7,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     ScrollingModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
     ReactiveFormsModule
   ],
   providers: [],
