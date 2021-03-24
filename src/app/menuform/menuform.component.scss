@@ -9,3 +9,35 @@ mat-form-field {
   width: 60%;
   max-width: 500px;
 }
+
+mat-file-upload {
+  margin-bottom: 4em;
+}
+
+.form__separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  &__step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: #333;
+    margin: 0 2em;
+    color: white;
+    transform: rotate(45deg);
+    &__number {
+      font-size: 1em;
+      font-weight: bold;
+      transform: rotate(-45deg);
+    }
+  }
+  &__line {
+    width: 80px;
+    height: 1px;
+    background: #dee3e0;
+  }
+}

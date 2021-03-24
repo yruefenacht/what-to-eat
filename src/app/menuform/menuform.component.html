@@ -2,6 +2,31 @@
 
 <form [formGroup]="menuform" (ngSubmit)="submitHandler()">
 
+  <div class="form__separator">
+    <div class="form__separator__line"></div>
+    <div class="form__separator__step">
+      <div class="form__separator__step__number">1</div>
+    </div>
+    <div class="form__separator__line"></div>
+  </div>
+
+  <mat-file-upload
+    [acceptedTypes]="'.png, .jpg, .jpeg'"
+    [labelText]="'Upload image:'"
+    [selectButtonText]="'Choose Image'"
+    [uploadButtonText]="'Upload'"
+    [allowMultipleFiles]="false"
+    (uploadClicked)="uploadImage($event)"
+  ></mat-file-upload>
+
+  <div class="form__separator">
+    <div class="form__separator__line"></div>
+    <div class="form__separator__step">
+      <div class="form__separator__step__number">2</div>
+    </div>
+    <div class="form__separator__line"></div>
+  </div>
+
   <mat-form-field>
     <input matInput placeholder="Title" formControlName="title">
     <mat-error *ngIf="title.invalid && title.touched">
@@ -29,11 +54,7 @@
   <mat-form-field>
     <input matInput placeholder="Tags" formControlName="tags">
   </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Upload Image" formControlName="image">
-  </mat-form-field>
   
-  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
+  <button mat-raised-button [disabled]="!formIsValid" type="submit" color="primary">Submit</button>
 
 </form>

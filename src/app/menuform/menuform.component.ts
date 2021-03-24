@@ -12,16 +12,20 @@ export class MenuformComponent implements OnInit {
   menuform: FormGroup;
   loading = false;
   success = false;
+  uploadedImageURL: string;
 
-  constructor(private menuService: MenuService, private formBuilder: FormBuilder) { }
+  constructor(
+    private menuService: MenuService,
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
     this.menuform = this.formBuilder.group({
       title: ['', [
         Validators.required
       ]],
-      image: ['', [
-        Validators.required
+      image: [null, [
+        Validators.required,
       ]],
       ingredients: [[], [
         Validators.required
@@ -36,6 +40,29 @@ export class MenuformComponent implements OnInit {
     });
 
     this.menuform.valueChanges.subscribe(console.log);
+  }
+
+  uploadImage(event): void {
+    const file = event.item(0);
+    this.menuService.uploadMenuImage(file).subscribe(url => {
+      this.uploadedImageURL = url;
+    });
+  }
+
+  async submitHandler(): Promise<void> {
+    this.loading = true;
+    const formValue = this.menuform.value;
+    try {
+      await this.menuService.insertMenu(formValue);
+      this.success = true;
+    } catch (err) {
+      console.log(err);
+    }
+    this.loading = false;
+  }
+
+  get formIsValid(): boolean {
+    return this.menuform.valid && this.uploadedImageURL != null;
   }
 
   get title(): AbstractControl {
@@ -56,22 +83,6 @@ export class MenuformComponent implements OnInit {
 
   get tags(): AbstractControl {
     return this.menuform.get('tags');
-  }
-
-  async submitHandler(): Promise<void> {
-
-    this.loading = true;
-
-    const formValue = this.menuform.value;
-
-    try {
-      await this.menuService.insertMenu(formValue);
-      this.success = true;
-    } catch (err) {
-      console.log(err);
-    }
-
-    this.loading = false;
   }
 
 }

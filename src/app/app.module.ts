@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatFileUploadModule } from 'mat-file-upload';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatFileUploadModule,
     ReactiveFormsModule
   ],
   providers: [],
