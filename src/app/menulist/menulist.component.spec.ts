@@ -3,6 +3,7 @@ import { MenulistComponent } from './menulist.component';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 import { MenuComponent } from '../menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 describe('MenulistComponent', () => {
@@ -16,7 +17,8 @@ describe('MenulistComponent', () => {
         MenuComponent
       ],
       imports: [
-        ScrollingModule
+        ScrollingModule,
+        MatIconModule
       ],
       providers: [
         { provide: MenuService, useClass: MenuMockService }

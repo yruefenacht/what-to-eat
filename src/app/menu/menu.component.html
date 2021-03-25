@@ -1,5 +1,7 @@
 <div class="menu" [class.menu--isLast]="isLast">
-  <img class="menu__image" [src]="menu.image">
+  <div class="menu--section-left">
+    <img class="menu__image" [src]="menu.image">
+  </div>
   <div>
     <ul>
       <li>
@@ -13,8 +15,8 @@
         </div>
       </li>
       <li>
-        <img class="menu__duration--icon" alt="Zeit" src="../../assets/images/clock.png">
-        <div class="menu__duration">{{ menu.duration }} min</div>
+        <mat-icon aria-label="Duration">schedule</mat-icon>
+        <div class="menu__duration"> {{ menu.duration }} min</div>
         <div class="menu__tags">
           <div class="menu__tags__item" *ngFor="let tag of menu.tags">
             {{ tag }}

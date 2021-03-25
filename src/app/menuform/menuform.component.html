@@ -13,7 +13,10 @@
 
   <mat-form-field>
     <input matInput placeholder="Title" formControlName="title">
-    <mat-error *ngIf="title.invalid && title.touched">
+    <mat-error *ngIf="title.errors?.required && title.touched">
+      Please set title
+    </mat-error>
+    <mat-error *ngIf="title.errors?.pattern && title.touched">
       Please only letters in title
     </mat-error>
   </mat-form-field>
