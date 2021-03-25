@@ -9,10 +9,27 @@ This project illustrates how to build a full-fledged web application using googl
 <br>  
 
 ![Setup](./src/assets/images/setup.jpg)
-
 <br><br>
 
-## Adding new menu
+## Adding New Menu
 <br>
 
 ![AddMenu](./src/assets/images/add_menu.jpg)
+<br><br>
+
+## Resources
+<br>
+
+- [Google Firebase](https://firebase.google.com/)
+
+- [Angular Fire - Github](https://github.com/angular/angularfire)
+
+- [Angular CDK Virtual Scroll - Fireship.io](https://fireship.io/lessons/infinite-virtual-scroll-angular-cdk/)
+
+- [Angular Material - Getting Started](https://v7.material.angular.io/guide/getting-started)
+
+- [Angular Reactive Forms](https://angular.io/guide/reactive-forms)
+
+- [Material File Input - npmjs](https://www.npmjs.com/package/ngx-material-file-input)
+
+- [Angular Firebase File Upload - Github](https://github.com/fireship-io/168-multi-file-upload-angular-firebase)
