@@ -14,6 +14,7 @@ export class MenuService implements IMenuService {
       return {
         title: 'Ravioli' + Math.random(),
         image: 'src/to/img',
+        imageBucket: 'filepath',
         ingredients: ['Reis', 'Spinat'],
         duration: 60,
         tags: ['Vegan']
@@ -22,12 +23,6 @@ export class MenuService implements IMenuService {
 
   getMenus(): Observable<Menu[]> {
     return of(this.menus);
-  }
-
-  insertMenu(menu: Menu): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      resolve(this.menus.push(menu));
-    });
   }
 
   updateMenu(id: string, menu: Menu): Promise<void> {
@@ -45,7 +40,7 @@ export class MenuService implements IMenuService {
     });
   }
 
-  uploadMenuImage(file: File): Observable<string> {
-    return of('path/to/img');
+  uploadMenu(payload: any): void {
+    this.menus.push(payload);
   }
 }

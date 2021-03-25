@@ -20,6 +20,7 @@ describe('MenuComponent', () => {
     component.menu = {
       title: 'Spaghetti',
       image: 'src/to/img',
+      imageBucket: 'filepath',
       ingredients: ['Nudeln', 'Sauce'],
       duration: 60,
       tags: ['Vegan']

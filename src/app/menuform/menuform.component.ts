@@ -43,19 +43,13 @@ export class MenuformComponent implements OnInit {
     });
   }
 
-  uploadImage(event): void {
-    const file = event.item(0);
-    this.menuService.uploadMenuImage(file).subscribe(url => {
-      this.uploadedImageURL = url;
-    });
-  }
-
   async submitHandler(): Promise<void> {
     this.loading = true;
     const formValue = this.menuform.value;
     try {
-      await this.menuService.insertMenu(formValue);
+      await this.menuService.uploadMenu(formValue);
       this.success = true;
+      console.log('success');
     } catch (err) {
       console.log(err);
     }

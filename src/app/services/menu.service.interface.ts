@@ -3,8 +3,7 @@ import { Menu } from '../models/menu.model';
 
 export interface IMenuService {
   getMenus(): Observable<Menu[]>;
-  insertMenu(menu: Menu): Promise<any>;
   updateMenu(id: string, menu: Menu): Promise<void>;
   deleteMenu(id: string): Promise<void>;
-  uploadMenuImage(file: File): Observable<string>;
+  uploadMenu(payload: any): void;
 }
