@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
@@ -37,6 +39,8 @@ import { MenuformComponent } from './menuform/menuform.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatChipsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgxMatFileInputModule
   ],

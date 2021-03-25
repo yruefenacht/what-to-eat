@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-menuform',
@@ -13,6 +15,8 @@ export class MenuformComponent implements OnInit {
   loading = false;
   success = false;
   uploadedImageURL: string;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
   constructor(
     private menuService: MenuService,
@@ -25,9 +29,6 @@ export class MenuformComponent implements OnInit {
         Validators.required
       ]],
       image: [null, [
-        Validators.required,
-      ]],
-      ingredients: [[], [
         Validators.required
       ]],
       duration: [null, [
@@ -36,14 +37,9 @@ export class MenuformComponent implements OnInit {
         Validators.min(5),
         Validators.max(999)
       ]],
-      tags: []
+      ingredients: [[]],
+      tags: [[]],
     });
-
-    this.menuform.valueChanges.subscribe(console.log);
-  }
-
-  onFileSelected(event): void {
-    console.log(event.target.files[0]);
   }
 
   uploadImage(event): void {
@@ -63,6 +59,22 @@ export class MenuformComponent implements OnInit {
       console.log(err);
     }
     this.loading = false;
+  }
+
+  addIngredient(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+    if ((value || '').trim()) {
+      this.menuform.value.ingredients.push(value);
+    }
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  removeIngredient(ingredient: string): void {
+    const values = this.menuform.value.ingredients.filter(v => v !== ingredient);
+    this.menuform.value.ingredients = values;
   }
 
   get title(): AbstractControl {

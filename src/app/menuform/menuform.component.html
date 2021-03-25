@@ -19,7 +19,20 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Ingredients" formControlName="ingredients">
+    <mat-chip-list #ingredientChips>
+      <mat-chip *ngFor="let ingredient of menuform.value.ingredients"
+        [selectable]="false"
+        [removable]="true"
+        (removed)="removeIngredient(ingredient)">
+        {{ ingredient }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Ingredients..."
+        [matChipInputFor]="ingredientChips"
+        [matChipInputAddOnBlur]="true"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="addIngredient($event)">
+    </mat-chip-list>
     <mat-error *ngIf="ingredients.invalid && ingredients.touched">
       Please add ingredients
     </mat-error>
@@ -36,7 +49,9 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Tags" formControlName="tags">
+    <mat-select placeholder="Tags..." [formControl]="tags" multiple>
+      <mat-option *ngFor="let tag of tagList" [value]="tag">{{ tag }}</mat-option>
+    </mat-select>
   </mat-form-field>
   
   <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
