@@ -42,7 +42,7 @@ export class MenuformComponent implements OnInit {
     this.menuform.valueChanges.subscribe(console.log);
   }
 
-  onFileSelected(event) {
+  onFileSelected(event): void {
     console.log(event.target.files[0]);
   }
 
