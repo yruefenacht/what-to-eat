@@ -42,6 +42,10 @@ export class MenuformComponent implements OnInit {
     this.menuform.valueChanges.subscribe(console.log);
   }
 
+  onFileSelected(event) {
+    console.log(event.target.files[0]);
+  }
+
   uploadImage(event): void {
     const file = event.item(0);
     this.menuService.uploadMenuImage(file).subscribe(url => {

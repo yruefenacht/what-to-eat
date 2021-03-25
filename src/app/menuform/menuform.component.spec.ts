@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFileUploadModule } from 'mat-file-upload';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 import { MenuformComponent } from './menuform.component';
@@ -21,7 +20,6 @@ describe('MenuformComponent', () => {
         MatIconModule,
         MatInputModule,
         ReactiveFormsModule,
-        MatFileUploadModule,
         BrowserAnimationsModule
       ],
       providers: [

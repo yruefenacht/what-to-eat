@@ -2,6 +2,8 @@
 
 <form [formGroup]="menuform" (ngSubmit)="submitHandler()">
 
+  Value: {{ menuform.value | json }}
+
   <div class="form__separator">
     <div class="form__separator__line"></div>
     <div class="form__separator__step">
@@ -10,14 +12,7 @@
     <div class="form__separator__line"></div>
   </div>
 
-  <mat-file-upload
-    [acceptedTypes]="'.png, .jpg, .jpeg'"
-    [labelText]="'Upload image:'"
-    [selectButtonText]="'Choose Image'"
-    [uploadButtonText]="'Upload'"
-    [allowMultipleFiles]="false"
-    (uploadClicked)="uploadImage($event)"
-  ></mat-file-upload>
+  <input type="file" formControlName="image" (change)="onFileSelected($event)">
 
   <div class="form__separator">
     <div class="form__separator__line"></div>
