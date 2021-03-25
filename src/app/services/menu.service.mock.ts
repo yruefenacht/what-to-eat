@@ -44,4 +44,8 @@ export class MenuService implements IMenuService {
       resolve();
     });
   }
+
+  uploadMenuImage(file: File): Observable<string> {
+    return of('path/to/img');
+  }
 }
