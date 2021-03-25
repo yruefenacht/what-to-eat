@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 import { AppComponent } from './app.component';
 import { MenulistComponent } from './menulist/menulist.component';
@@ -36,7 +37,8 @@ import { MenuformComponent } from './menuform/menuform.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMatFileInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -65,10 +65,6 @@ export class MenuformComponent implements OnInit {
     this.loading = false;
   }
 
-  get formIsValid(): boolean {
-    return this.menuform.valid && this.uploadedImageURL != null;
-  }
-
   get title(): AbstractControl {
     return this.menuform.get('title');
   }

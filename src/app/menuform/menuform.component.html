@@ -2,25 +2,14 @@
 
 <form [formGroup]="menuform" (ngSubmit)="submitHandler()">
 
-  Value: {{ menuform.value | json }}
-
-  <div class="form__separator">
-    <div class="form__separator__line"></div>
-    <div class="form__separator__step">
-      <div class="form__separator__step__number">1</div>
-    </div>
-    <div class="form__separator__line"></div>
-  </div>
-
-  <input type="file" formControlName="image" (change)="onFileSelected($event)">
-
-  <div class="form__separator">
-    <div class="form__separator__line"></div>
-    <div class="form__separator__step">
-      <div class="form__separator__step__number">2</div>
-    </div>
-    <div class="form__separator__line"></div>
-  </div>
+  <mat-form-field>
+    <ngx-mat-file-input
+      placeholder="Select image"
+      [formControl]="image"
+      [multiple]="false"
+      [accept]="'.png, .jpg, .jpeg'"
+    ></ngx-mat-file-input>
+  </mat-form-field>
 
   <mat-form-field>
     <input matInput placeholder="Title" formControlName="title">
@@ -50,6 +39,6 @@
     <input matInput placeholder="Tags" formControlName="tags">
   </mat-form-field>
   
-  <button mat-raised-button [disabled]="!formIsValid" type="submit" color="primary">Submit</button>
+  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
 
 </form>
