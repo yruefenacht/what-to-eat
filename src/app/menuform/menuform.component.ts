@@ -13,9 +13,6 @@ import { requireImageFormat } from '../directives/image-validator.directive';
 export class MenuformComponent implements OnInit {
 
   menuform: FormGroup;
-  loading = false;
-  success = false;
-  uploadedImageURL: string;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
@@ -46,15 +43,12 @@ export class MenuformComponent implements OnInit {
   }
 
   async submitHandler(): Promise<void> {
-    this.loading = true;
     const formValue = this.menuform.value;
     try {
       await this.menuService.uploadMenu(formValue);
-      this.success = true;
     } catch (err) {
       console.log(err);
     }
-    this.loading = false;
   }
 
   addIngredient(event: MatChipInputEvent): void {
@@ -71,6 +65,10 @@ export class MenuformComponent implements OnInit {
   removeIngredient(ingredient: string): void {
     const values = this.menuform.value.ingredients.filter(v => v !== ingredient);
     this.menuform.value.ingredients = values;
+  }
+
+  get uploadDone(): boolean {
+    return this.menuService.menuImageURL != null;
   }
 
   get title(): AbstractControl {

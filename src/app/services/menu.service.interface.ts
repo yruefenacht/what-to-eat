@@ -5,5 +5,5 @@ export interface IMenuService {
   getMenus(): Observable<Menu[]>;
   updateMenu(id: string, menu: Menu): Promise<void>;
   deleteMenu(id: string): Promise<void>;
-  uploadMenu(payload: any): void;
+  uploadMenu(payload: any): Promise<void>;
 }
