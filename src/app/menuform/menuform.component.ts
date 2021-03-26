@@ -4,6 +4,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { requireImageFormat } from '../directives/image-validator.directive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menuform',
@@ -13,12 +14,14 @@ import { requireImageFormat } from '../directives/image-validator.directive';
 export class MenuformComponent implements OnInit {
 
   menuform: FormGroup;
+  loading = false;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
   constructor(
     private menuService: MenuService,
     private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,13 +45,13 @@ export class MenuformComponent implements OnInit {
     });
   }
 
-  async submitHandler(): Promise<void> {
+  submitHandler(): void {
     const formValue = this.menuform.value;
-    try {
-      await this.menuService.uploadMenu(formValue);
-    } catch (err) {
-      console.log(err);
-    }
+    this.loading = true;
+    this.menuService.uploadMenu(formValue, () => {
+      this.loading = false;
+      this.router.navigate(['']);
+    });
   }
 
   addIngredient(event: MatChipInputEvent): void {

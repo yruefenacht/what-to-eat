@@ -9,7 +9,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 import { MenuformComponent } from './menuform.component';
-
+import { Router } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 describe('MenuformComponent', () => {
   let component: MenuformComponent;
@@ -23,12 +24,14 @@ describe('MenuformComponent', () => {
         MatInputModule,
         MatSelectModule,
         MatChipsModule,
+        MatProgressSpinnerModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        NgxMatFileInputModule
+        NgxMatFileInputModule,
       ],
       providers: [
-        { provide: MenuService, useClass: MenuMockService }
+        { provide: MenuService, useClass: MenuMockService },
+        { provide: Router, useClass: class { navigate = jasmine.createSpy('navigate'); } }
       ]
     })
     .compileComponents();

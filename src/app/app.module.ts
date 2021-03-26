@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
@@ -41,6 +42,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     MatInputModule,
     MatChipsModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     NgxMatFileInputModule
   ],

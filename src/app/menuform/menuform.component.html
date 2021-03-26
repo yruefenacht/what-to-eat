@@ -1,6 +1,6 @@
 <h2>Add new menu</h2>
 
-<form [formGroup]="menuform" (ngSubmit)="submitHandler()">
+<form [formGroup]="menuform" *ngIf="!loading" (ngSubmit)="submitHandler()">
 
   <mat-form-field>
     <ngx-mat-file-input
@@ -63,3 +63,5 @@
   <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
 
 </form>
+
+<mat-spinner *ngIf="loading" [strokeWidth]="5"></mat-spinner>
