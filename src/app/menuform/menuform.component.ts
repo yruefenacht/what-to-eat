@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { requireImageFormat } from '../directives/image-validator.directive';
 
 @Component({
   selector: 'app-menuform',
@@ -30,7 +31,8 @@ export class MenuformComponent implements OnInit {
         Validators.pattern('^[a-zA-Z ]*$')
       ]],
       image: [null, [
-        Validators.required
+        Validators.required,
+        requireImageFormat(['image/jpeg', 'image/png'])
       ]],
       duration: [null, [
         Validators.required,
@@ -49,7 +51,6 @@ export class MenuformComponent implements OnInit {
     try {
       await this.menuService.uploadMenu(formValue);
       this.success = true;
-      console.log('success');
     } catch (err) {
       console.log(err);
     }

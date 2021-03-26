@@ -9,6 +9,9 @@
       [multiple]="false"
       [accept]="'.png, .jpg, .jpeg'"
     ></ngx-mat-file-input>
+    <mat-error *ngIf="image.errors?.imageFormat && image.touched">
+      Accepted formats: png, jpg, jpeg
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
