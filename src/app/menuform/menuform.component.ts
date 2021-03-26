@@ -28,7 +28,7 @@ export class MenuformComponent implements OnInit {
     this.menuform = this.formBuilder.group({
       title: ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')
+        Validators.pattern('^[a-zA-Z äöüÄÖÜ]*$')
       ]],
       image: [null, [
         Validators.required,
