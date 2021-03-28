@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { requireImageFormat } from '../directives/image-validator.directive';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menuform',
@@ -15,13 +15,15 @@ export class MenuformComponent implements OnInit {
 
   menuform: FormGroup;
   loading = false;
+  isEditing = false;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
   constructor(
     private menuService: MenuService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,20 @@ export class MenuformComponent implements OnInit {
       ingredients: [[]],
       tags: [[]],
     });
+
+    const menuId = this.route.snapshot.paramMap.get('id');
+    if (menuId) {
+      this.isEditing = true;
+      this.menuService.getMenuById(menuId).subscribe(menu => {
+        this.menuform.patchValue({
+          title: menu.title,
+          image: menu.image,
+          duration: menu.duration,
+          ingredients: menu.ingredients,
+          tags: menu.tags
+        });
+      });
+    }
   }
 
   submitHandler(): void {
@@ -68,10 +84,6 @@ export class MenuformComponent implements OnInit {
   removeIngredient(ingredient: string): void {
     const values = this.menuform.value.ingredients.filter(v => v !== ingredient);
     this.menuform.value.ingredients = values;
-  }
-
-  get uploadDone(): boolean {
-    return this.menuService.menuImageURL != null;
   }
 
   get title(): AbstractControl {

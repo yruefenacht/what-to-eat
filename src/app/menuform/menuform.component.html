@@ -2,7 +2,7 @@
 
 <form [formGroup]="menuform" *ngIf="!loading" (ngSubmit)="submitHandler()">
 
-  <mat-form-field>
+  <mat-form-field *ngIf="!isEditing">
     <ngx-mat-file-input
       placeholder="Select image"
       [formControl]="image"
@@ -60,7 +60,7 @@
     </mat-select>
   </mat-form-field>
   
-  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Submit</button>
+  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Save</button>
 
 </form>
 

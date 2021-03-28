@@ -1,8 +1,6 @@
-export interface Menu {
-  id: string;
+export interface MenuForm {
   title: string;
   image: string;
-  imageBucket: string;
   ingredients: string[];
   duration: number;
   tags: string[];

@@ -4,6 +4,7 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Menu } from '../models/menu.model';
+import { MenuForm } from '../models/menuform.model';
 import { IMenuService } from './menu.service.interface';
 
 @Injectable({
@@ -11,24 +12,27 @@ import { IMenuService } from './menu.service.interface';
 })
 export class MenuService implements IMenuService {
 
-  collection: AngularFirestoreCollection<Menu>;
+  menuList: AngularFirestoreCollection<Menu>;
   uploadTask: AngularFireUploadTask;
-  menuImageURL: string;
 
   constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {
-    this.collection = this.firestore.collection('Menu');
+    this.menuList = this.firestore.collection('Menu');
   }
 
   getMenus(): Observable<Menu[]> {
-    return this.collection.valueChanges({ idField: 'id' });
+    return this.menuList.valueChanges({ idField: 'id' });
+  }
+
+  getMenuById(id: string): Observable<MenuForm> {
+    return this.firestore.doc<Menu>('Menu/' + id).valueChanges();
   }
 
   updateMenu(id: string, menu: Menu): Promise<void> {
-    return this.collection.doc(id).update(menu);
+    return this.menuList.doc(id).update(menu);
   }
 
   deleteMenu(id: string): Promise<void> {
-    return this.collection.doc(id).delete();
+    return this.menuList.doc(id).delete();
   }
 
   uploadMenu(payload: any, onSuccess: () => void): void {
@@ -39,10 +43,10 @@ export class MenuService implements IMenuService {
 
     this.uploadTask.snapshotChanges().pipe(
       finalize(async () => {
-        this.menuImageURL = await ref.getDownloadURL().toPromise();
-        payload.image = this.menuImageURL;
+        const menuImageURL = await ref.getDownloadURL().toPromise();
+        payload.image = menuImageURL;
         payload.imageBucket = filepath;
-        await this.collection.add(payload);
+        await this.menuList.add(payload);
         onSuccess();
       })
     ).subscribe();

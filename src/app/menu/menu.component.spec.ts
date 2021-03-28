@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from '../app-routing.module';
 import { MenuComponent } from './menu.component';
 
 describe('MenuComponent', () => {
@@ -9,7 +10,10 @@ describe('MenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MenuComponent ],
-      imports: [ MatIconModule ]
+      imports: [
+        MatIconModule,
+        AppRoutingModule
+      ]
     })
     .compileComponents();
   });
@@ -18,6 +22,7 @@ describe('MenuComponent', () => {
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
     component.menu = {
+      id: 'fakeid',
       title: 'Spaghetti',
       image: 'src/to/img',
       imageBucket: 'filepath',

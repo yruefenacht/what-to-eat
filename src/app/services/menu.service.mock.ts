@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Menu } from '../models/menu.model';
+import { MenuForm } from '../models/menuform.model';
 import { IMenuService } from './menu.service.interface';
 
 @Injectable({
@@ -12,6 +13,7 @@ export class MenuService implements IMenuService {
     .fill(1)
     .map(el => {
       return {
+        id: 'fakeId',
         title: 'Ravioli' + Math.random(),
         image: 'src/to/img',
         imageBucket: 'filepath',
@@ -25,9 +27,13 @@ export class MenuService implements IMenuService {
     return of(this.menus);
   }
 
+  getMenuById(id: string): Observable<MenuForm> {
+    return of(this.menus.find(menu => menu.id === id));
+  }
+
   updateMenu(id: string, menu: Menu): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      const index = this.menus.findIndex((v, i) => v.title === id);
+      const index = this.menus.findIndex((v, i) => v.id === id);
       this.menus[index] = menu;
       resolve();
     });
@@ -35,7 +41,7 @@ export class MenuService implements IMenuService {
 
   deleteMenu(id: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.menus = this.menus.filter(v => v.title !== id);
+      this.menus = this.menus.filter(v => v.id !== id);
       resolve();
     });
   }
