@@ -16,7 +16,7 @@
       </li>
       <li>
         <mat-icon aria-label="Duration">schedule</mat-icon>
-        <div class="menu__duration"> {{ menu.duration }} min</div>
+        <div class="menu__duration"><b>{{ menu.duration }}</b> min</div>
         <div class="menu__tags">
           <div class="menu__tags__item" *ngFor="let tag of menu.tags">
             {{ tag }}
@@ -26,8 +26,19 @@
     </ul>
   </div>
   <div class="menu--section-right">
-    <button mat-icon-button [routerLink]="['/edit', menu.id]">
-      <mat-icon aria-label="Edit Todo">edit</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menuOptions">
+      <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #menuOptions="matMenu">
+      <button mat-menu-item [routerLink]="['/edit', menu.id]">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+    
   </div>
 </div>

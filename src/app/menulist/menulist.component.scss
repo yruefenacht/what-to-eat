@@ -6,19 +6,12 @@
 
 cdk-virtual-scroll-viewport {
   height: calc(100vh - 200px);
+  width: 100%;
 }
 
 .menus {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center();
   flex-direction: column;
-  &--section {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 }
 
 .no-menus {
@@ -31,7 +24,7 @@ cdk-virtual-scroll-viewport {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7.5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -40,7 +33,7 @@ cdk-virtual-scroll-viewport {
 
 ::-webkit-scrollbar-thumb {
   background-color: #222831;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .add-menu-btn {
