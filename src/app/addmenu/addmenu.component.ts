@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { requireImageFormat } from '../directives/imagevalidator.directive';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmenu',
@@ -13,9 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddMenuComponent implements OnInit {
 
-  menuform: FormGroup;
+  menuForm: FormGroup;
   loading = false;
-  isEditing = false;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
@@ -23,11 +22,10 @@ export class AddMenuComponent implements OnInit {
     private menuService: MenuService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.menuform = this.formBuilder.group({
+    this.menuForm = this.formBuilder.group({
       title: ['', [
         Validators.required,
         Validators.pattern('^[a-zA-Z äöüÄÖÜ]*$')
@@ -45,24 +43,10 @@ export class AddMenuComponent implements OnInit {
       ingredients: [[]],
       tags: [[]],
     });
-
-    const menuId = this.route.snapshot.paramMap.get('id');
-    if (menuId) {
-      this.isEditing = true;
-      this.menuService.getMenuById(menuId).subscribe(menu => {
-        this.menuform.patchValue({
-          title: menu.title,
-          image: menu.image,
-          duration: menu.duration,
-          ingredients: menu.ingredients,
-          tags: menu.tags
-        });
-      });
-    }
   }
 
   submitHandler(): void {
-    const formValue = this.menuform.value;
+    const formValue = this.menuForm.value;
     this.loading = true;
     this.menuService.uploadMenu(formValue, () => {
       this.loading = false;
@@ -74,7 +58,7 @@ export class AddMenuComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     if ((value || '').trim()) {
-      this.menuform.value.ingredients.push(value);
+      this.menuForm.value.ingredients.push(value);
     }
     if (input) {
       input.value = '';
@@ -82,28 +66,28 @@ export class AddMenuComponent implements OnInit {
   }
 
   removeIngredient(ingredient: string): void {
-    const values = this.menuform.value.ingredients.filter(v => v !== ingredient);
-    this.menuform.value.ingredients = values;
+    const values = this.menuForm.value.ingredients.filter(v => v !== ingredient);
+    this.menuForm.value.ingredients = values;
   }
 
   get title(): AbstractControl {
-    return this.menuform.get('title');
+    return this.menuForm.get('title');
   }
 
   get image(): AbstractControl {
-    return this.menuform.get('image');
+    return this.menuForm.get('image');
   }
 
   get ingredients(): AbstractControl {
-    return this.menuform.get('ingredients');
+    return this.menuForm.get('ingredients');
   }
 
   get duration(): AbstractControl {
-    return this.menuform.get('duration');
+    return this.menuForm.get('duration');
   }
 
   get tags(): AbstractControl {
-    return this.menuform.get('tags');
+    return this.menuForm.get('tags');
   }
 
 }

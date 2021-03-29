@@ -1,6 +1,6 @@
-<h2>Add new menu</h2>
+<h2>Add New Menu</h2>
 
-<form [formGroup]="menuform" *ngIf="!loading" (ngSubmit)="submitHandler()">
+<form [formGroup]="menuForm" *ngIf="!loading" (ngSubmit)="submitHandler()">
 
   <mat-form-field *ngIf="!isEditing">
     <ngx-mat-file-input
@@ -26,7 +26,7 @@
 
   <mat-form-field>
     <mat-chip-list #ingredientChips>
-      <mat-chip *ngFor="let ingredient of menuform.value.ingredients"
+      <mat-chip *ngFor="let ingredient of menuForm.value.ingredients"
         [selectable]="false"
         [removable]="true"
         (removed)="removeIngredient(ingredient)">
@@ -60,7 +60,7 @@
     </mat-select>
   </mat-form-field>
   
-  <button mat-raised-button [disabled]="menuform.invalid" type="submit" color="primary">Save</button>
+  <button mat-raised-button [disabled]="menuForm.invalid" type="submit" color="primary">Save</button>
 
 </form>
 
