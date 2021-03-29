@@ -1,55 +1,10 @@
 <h2>Edit Menu</h2>
 
-<form [formGroup]="menuForm" *ngIf="!loading" (ngSubmit)="submitHandler()">
-
-  <mat-form-field>
-    <input matInput placeholder="Title" formControlName="title">
-    <mat-error *ngIf="title.errors?.required && title.touched">
-      Please set title
-    </mat-error>
-    <mat-error *ngIf="title.errors?.pattern && title.touched">
-      Please only letters in title
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-chip-list #ingredientChips>
-      <mat-chip *ngFor="let ingredient of menuForm.value.ingredients"
-        [selectable]="false"
-        [removable]="true"
-        (removed)="removeIngredient(ingredient)">
-        {{ ingredient }}
-        <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip>
-      <input placeholder="Ingredients..."
-        [matChipInputFor]="ingredientChips"
-        [matChipInputAddOnBlur]="true"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        (matChipInputTokenEnd)="addIngredient($event)">
-    </mat-chip-list>
-    <mat-error *ngIf="ingredients.invalid && ingredients.touched">
-      Please add ingredients
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Duration [min]" [value]="0" formControlName="duration">
-    <mat-error *ngIf="duration.errors?.min && duration.touched">
-      Duration is unrealistically small
-    </mat-error>
-    <mat-error *ngIf="duration.errors?.max && duration.touched">
-      Duration is unrealistically high
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Tags..." [formControl]="tags" multiple>
-      <mat-option *ngFor="let tag of tagList" [value]="tag">{{ tag }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<app-menuform *ngIf="!loading && menu"
+  [menu]="menu"
+  [hasImage]="false"
+  [submitButtonText]="'Save'"
+  (submitEvent)="submitHandler($event)"
+></app-menuform>
   
-  <button mat-raised-button [disabled]="menuForm.invalid" type="submit" color="primary">Save</button>
-  
-</form>
-  
-<mat-spinner *ngIf="loading" [strokeWidth]="5"></mat-spinner>
+<mat-spinner *ngIf="loading || !menu" [strokeWidth]="5"></mat-spinner>

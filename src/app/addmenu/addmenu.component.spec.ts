@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
-import { AddMenuComponent } from './addmenu.component';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { AddMenuComponent } from './addmenu.component';
 
 describe('AddMenuComponent', () => {
   let component: AddMenuComponent;
