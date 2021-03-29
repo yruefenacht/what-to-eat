@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MenuService } from '../services/menu.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { requireImageFormat } from '../directives/image-validator.directive';
+import { requireImageFormat } from '../directives/imagevalidator.directive';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
