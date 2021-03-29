@@ -15,12 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 import { AppComponent } from './app.component';
+import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { environment } from '../environments/environment';
-import { MenuformComponent } from './menuform/menuform.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     MenulistComponent,
     PagenotfoundComponent,
     MenuComponent,
-    MenuformComponent
+    AddMenuComponent
   ],
   imports: [
     BrowserModule,

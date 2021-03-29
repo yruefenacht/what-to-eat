@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuformComponent } from './menuform/menuform.component';
+import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: '', component: MenulistComponent },
-  { path: 'new', component: MenuformComponent },
-  { path: 'edit/:id', component: MenuformComponent },
+  { path: 'new', component: AddMenuComponent },
+  { path: 'edit/:id', component: AddMenuComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

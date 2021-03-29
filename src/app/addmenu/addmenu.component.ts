@@ -7,11 +7,11 @@ import { requireImageFormat } from '../directives/image-validator.directive';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menuform',
-  templateUrl: './menuform.component.html',
-  styleUrls: ['./menuform.component.scss']
+  selector: 'app-addmenu',
+  templateUrl: './addmenu.component.html',
+  styleUrls: ['./addmenu.component.scss']
 })
-export class MenuformComponent implements OnInit {
+export class AddMenuComponent implements OnInit {
 
   menuform: FormGroup;
   loading = false;

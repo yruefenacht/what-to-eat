@@ -8,17 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
-import { MenuformComponent } from './menuform.component';
+import { AddMenuComponent } from './addmenu.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-describe('MenuformComponent', () => {
-  let component: MenuformComponent;
-  let fixture: ComponentFixture<MenuformComponent>;
+describe('AddMenuComponent', () => {
+  let component: AddMenuComponent;
+  let fixture: ComponentFixture<AddMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuformComponent ],
+      declarations: [ AddMenuComponent ],
       imports: [
         MatButtonModule,
         MatInputModule,
@@ -39,7 +39,7 @@ describe('MenuformComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuformComponent);
+    fixture = TestBed.createComponent(AddMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
