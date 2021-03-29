@@ -22,7 +22,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { environment } from '../environments/environment';
-
+import { EditmenuComponent } from './editmenu/editmenu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { environment } from '../environments/environment';
     MenulistComponent,
     PagenotfoundComponent,
     MenuComponent,
-    AddMenuComponent
+    AddMenuComponent,
+    EditmenuComponent
   ],
   imports: [
     BrowserModule,
