@@ -6,9 +6,22 @@ List of menu ideas that aims to stop time being wasted on the always recurring q
 This project illustrates how to build a full-fledged web application using google firebase as the backend server and angular as the frontend client.
 
 ## Setup - Firebase config
-<br>  
+<br>
 
-![Setup](./src/assets/images/firebase_env.jpg)
+```ts
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: "<key>",
+    authDomain: "<project>.firebaseapp.com",
+    projectId: "<projectId>",
+    storageBucket: "<project>.appspot.ch",
+    messagingSenderId: "<senderId>",
+    appId: "<addId>",
+    measurementId: "<measurementId>"
+  }
+};
+```
 <br><br>
 
 ## Dataflow
