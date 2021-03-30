@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from '../app-routing.module';
+
 import { MenuComponent } from './menu.component';
 
 describe('MenuComponent', () => {
