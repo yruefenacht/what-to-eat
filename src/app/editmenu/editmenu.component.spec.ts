@@ -8,11 +8,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuformComponent } from '../menuform/menuform.component';
+
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 
 import { EditmenuComponent } from './editmenu.component';
+import { MenuformComponent } from '../menuform/menuform.component';
 
 describe('EditmenuComponent', () => {
   let component: EditmenuComponent;

@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MenuService } from '../services/menu.service';
-import { MenuService as MenuMockService } from '../services/menu.service.mock';
-import { MenuComponent } from '../menu/menu.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { MenuService } from '../services/menu.service';
+import { MenuService as MenuMockService } from '../services/menu.service.mock';
+
 import { MenulistComponent } from './menulist.component';
+import { MenuComponent } from '../menu/menu.component';
 
 describe('MenulistComponent', () => {
   let component: MenulistComponent;
