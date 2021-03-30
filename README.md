@@ -5,7 +5,13 @@
 List of menu ideas that aims to stop time being wasted on the always recurring question: 'What to eat?'  
 This project illustrates how to build a full-fledged web application using google firebase as the backend server and angular as the frontend client.
 
-## Setup
+## Setup - Firebase config
+<br>  
+
+![Setup](./src/assets/images/firebase_env.jpg)
+<br><br>
+
+## Dataflow
 <br>  
 
 ![Setup](./src/assets/images/setup.jpg)
