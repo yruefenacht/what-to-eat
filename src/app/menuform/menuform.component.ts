@@ -17,6 +17,7 @@ export class MenuformComponent implements OnInit {
   @Input() submitButtonText: string;
   @Output() submitEvent = new EventEmitter<MenuForm>();
   menuForm: FormGroup;
+  ingredientList: string[] = [];
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
@@ -48,6 +49,7 @@ export class MenuformComponent implements OnInit {
     }
 
     if (this.menu) {
+      this.ingredientList = this.menu.ingredients;
       this.menuForm.patchValue({
         title: this.menu.title,
         duration: this.menu.duration,
@@ -66,7 +68,8 @@ export class MenuformComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     if ((value || '').trim()) {
-      this.menuForm.value.ingredients.push(value);
+      this.ingredientList.push(value);
+      this.ingredients.setValue(this.ingredientList);
     }
     if (input) {
       input.value = '';
@@ -74,8 +77,11 @@ export class MenuformComponent implements OnInit {
   }
 
   removeIngredient(ingredient: string): void {
-    const values = this.menuForm.value.ingredients.filter(v => v !== ingredient);
-    this.menuForm.value.ingredients = values;
+    const index = this.ingredientList.indexOf(ingredient);
+    if (index >= 0) {
+      this.ingredientList.splice(index, 1);
+      this.ingredients.setValue(this.ingredientList);
+    }
   }
 
   get title(): AbstractControl {
