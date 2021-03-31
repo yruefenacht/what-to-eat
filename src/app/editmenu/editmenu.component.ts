@@ -11,6 +11,7 @@ import { MenuService } from '../services/menu.service';
 export class EditmenuComponent implements OnInit {
 
   menu: MenuForm;
+  menuId: string;
   loading = false;
 
   constructor(
@@ -20,16 +21,22 @@ export class EditmenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const menuId = this.route.snapshot.paramMap.get('id');
-    if (menuId) {
-      this.menuService.getMenuById(menuId).subscribe(menu => {
+    this.menuId = this.route.snapshot.paramMap.get('id');
+    if (this.menuId) {
+      this.menuService.getMenuById(this.menuId).subscribe(menu => {
         this.menu = menu;
       });
     }
   }
 
   submitHandler(editedMenu: MenuForm): void {
-    console.log(editedMenu);
+    this.loading = true;
+    this.menuService.updateMenu(this.menuId, editedMenu).then(res => {
+      this.loading = false;
+      this.router.navigate(['']);
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
 }

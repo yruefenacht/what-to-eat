@@ -27,7 +27,7 @@ export class MenuService implements IMenuService {
     return this.firestore.doc<Menu>('Menu/' + id).valueChanges();
   }
 
-  updateMenu(id: string, menu: Menu): Promise<void> {
+  updateMenu(id: string, menu: MenuForm): Promise<void> {
     return this.menuList.doc(id).update(menu);
   }
 
