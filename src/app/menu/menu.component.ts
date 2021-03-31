@@ -15,4 +15,9 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  deleteMenu(): void {
+    console.log(this.menu.id);
+    // TODO: call delete from menuService...maybe add dialog and snackbar
+  }
+
 }
