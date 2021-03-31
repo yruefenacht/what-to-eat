@@ -29,13 +29,15 @@ export class MenuformComponent implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z äöüÄÖÜ]*$')
       ]],
+      ingredients: [null, [
+        Validators.required
+      ]],
       duration: [null, [
         Validators.required,
         Validators.maxLength(3),
         Validators.min(5),
         Validators.max(999)
       ]],
-      ingredients: [[]],
       tags: [[]],
     });
 

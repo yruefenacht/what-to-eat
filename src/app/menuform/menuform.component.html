@@ -23,7 +23,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-chip-list #ingredientChips>
+    <mat-chip-list #ingredientChips formControlName="ingredients">
       <mat-chip *ngFor="let ingredient of menuForm.value.ingredients"
         [selectable]="false"
         [removable]="true"
@@ -37,7 +37,7 @@
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         (matChipInputTokenEnd)="addIngredient($event)">
     </mat-chip-list>
-    <mat-error *ngIf="ingredients.invalid && ingredients.touched">
+    <mat-error *ngIf="ingredients.errors?.required && ingredients.touched">
       Please add ingredients
     </mat-error>
   </mat-form-field>
