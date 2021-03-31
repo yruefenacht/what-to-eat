@@ -22,11 +22,13 @@ export class EditmenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuId = this.route.snapshot.paramMap.get('id');
-    if (this.menuId) {
-      this.menuService.getMenuById(this.menuId).subscribe(menu => {
+    this.menuService.getMenuById(this.menuId).subscribe(menu => {
+      if (menu) {
         this.menu = menu;
-      });
-    }
+      } else {
+        this.router.navigate(['']);
+      }
+    });
   }
 
   submitHandler(editedMenu: MenuForm): void {
