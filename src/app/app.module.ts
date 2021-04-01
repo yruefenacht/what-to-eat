@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
@@ -20,6 +21,7 @@ import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
+import { MenuDialog } from './menudialog/menu.dialog';
 
 import { environment } from '../environments/environment';
 import { EditmenuComponent } from './editmenu/editmenu.component';
@@ -33,7 +35,8 @@ import { MenuformComponent } from './menuform/menuform.component';
     MenuComponent,
     AddMenuComponent,
     EditmenuComponent,
-    MenuformComponent
+    MenuformComponent,
+    MenuDialog
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     MatChipsModule,
     MatSelectModule,
     MatMenuModule,
+    MatDialogModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     NgxMatFileInputModule

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Menu } from '../models/menu.model';
+import { MenuDialog } from '../menudialog/menu.dialog';
+import { MenuService } from '../services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,13 +14,17 @@ export class MenuComponent implements OnInit {
   @Input() menu: Menu;
   @Input() isLast: boolean;
 
-  constructor() { }
+  constructor(private menuService: MenuService, private dialog: MatDialog) { }
 
   ngOnInit(): void { }
 
   deleteMenu(): void {
-    console.log(this.menu.id);
-    // TODO: call delete from menuService...maybe add dialog and snackbar
+    const menuDialogRef = this.dialog.open(MenuDialog);
+    menuDialogRef.afterClosed().subscribe(deleteMenu => {
+      if (deleteMenu) {
+        this.menuService.deleteMenu(this.menu.id);
+      }
+    });
   }
 
 }
