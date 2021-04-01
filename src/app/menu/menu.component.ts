@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Menu } from '../models/menu.model';
-import { MenuDialog } from '../menudialog/menu.dialog';
+import { MenuDialogComponent } from '../menudialog/menu.dialog';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void { }
 
   deleteMenu(): void {
-    const menuDialogRef = this.dialog.open(MenuDialog);
+    const menuDialogRef = this.dialog.open(MenuDialogComponent);
     menuDialogRef.afterClosed().subscribe(deleteMenu => {
       if (deleteMenu) {
         this.menuService.deleteMenu(this.menu.id);

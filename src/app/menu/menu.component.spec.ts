@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { AppRoutingModule } from '../app-routing.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { MenuService } from '../services/menu.service';
+import { MenuService as MenuMockService } from '../services/menu.service.mock';
 
 import { MenuComponent } from './menu.component';
 
@@ -15,7 +19,11 @@ describe('MenuComponent', () => {
       imports: [
         MatIconModule,
         MatMenuModule,
-        AppRoutingModule
+        MatDialogModule,
+        RouterTestingModule
+      ],
+      providers: [
+        { provide: MenuService, useClass: MenuMockService }
       ]
     })
     .compileComponents();

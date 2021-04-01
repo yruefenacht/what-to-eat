@@ -21,7 +21,7 @@ import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
-import { MenuDialog } from './menudialog/menu.dialog';
+import { MenuDialogComponent } from './menudialog/menu.dialog';
 
 import { environment } from '../environments/environment';
 import { EditmenuComponent } from './editmenu/editmenu.component';
@@ -36,7 +36,7 @@ import { MenuformComponent } from './menuform/menuform.component';
     AddMenuComponent,
     EditmenuComponent,
     MenuformComponent,
-    MenuDialog
+    MenuDialogComponent
   ],
   imports: [
     BrowserModule,
