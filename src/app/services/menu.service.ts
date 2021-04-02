@@ -31,7 +31,8 @@ export class MenuService implements IMenuService {
     return this.menuList.doc(id).update(menu);
   }
 
-  deleteMenu(id: string): Promise<void> {
+  deleteMenu(id: string, imageBucket: string): Promise<void> {
+    this.storage.ref(imageBucket).delete();
     return this.menuList.doc(id).delete();
   }
 

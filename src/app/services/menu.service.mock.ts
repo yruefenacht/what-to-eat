@@ -39,7 +39,7 @@ export class MenuService implements IMenuService {
     });
   }
 
-  deleteMenu(id: string): Promise<void> {
+  deleteMenu(id: string, imageBucket: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.menus = this.menus.filter(v => v.id !== id);
       resolve();

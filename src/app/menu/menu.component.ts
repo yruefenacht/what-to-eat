@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
     const menuDialogRef = this.dialog.open(MenuDialogComponent);
     menuDialogRef.afterClosed().subscribe(deleteMenu => {
       if (deleteMenu) {
-        this.menuService.deleteMenu(this.menu.id).then(res => {
+        this.menuService.deleteMenu(this.menu.id, this.menu.imageBucket).then(res => {
           this.openSnackbar();
         });
       }
