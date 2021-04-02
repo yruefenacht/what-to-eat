@@ -20,8 +20,7 @@ import { AppComponent } from './app.component';
 import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { MenuComponent } from './menu/menu.component';
-import { MenuDialogComponent } from './menudialog/menu.dialog';
+import { MenuComponent, MenuDialogComponent } from './menu/menu.component';
 
 import { environment } from '../environments/environment';
 import { EditmenuComponent } from './editmenu/editmenu.component';

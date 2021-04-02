@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Menu } from '../models/menu.model';
-import { MenuDialogComponent } from '../menudialog/menu.dialog';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -28,3 +27,9 @@ export class MenuComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'app-menudialog',
+  templateUrl: './menu.dialog.html'
+})
+export class MenuDialogComponent {}
