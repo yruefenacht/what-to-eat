@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Menu } from '../models/menu.model';
 import { MenuService } from '../services/menu.service';
 
@@ -12,8 +13,12 @@ export class MenuComponent implements OnInit {
 
   @Input() menu: Menu;
   @Input() isLast: boolean;
+  snackBarDuration = 5000;
 
-  constructor(private menuService: MenuService, private dialog: MatDialog) { }
+  constructor(
+    private menuService: MenuService,
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar) { }
 
   ngOnInit(): void { }
 
@@ -21,8 +26,16 @@ export class MenuComponent implements OnInit {
     const menuDialogRef = this.dialog.open(MenuDialogComponent);
     menuDialogRef.afterClosed().subscribe(deleteMenu => {
       if (deleteMenu) {
-        this.menuService.deleteMenu(this.menu.id);
+        this.menuService.deleteMenu(this.menu.id).then(res => {
+          this.openSnackbar();
+        });
       }
+    });
+  }
+
+  openSnackbar(): void {
+    this.snackbar.openFromComponent(MenuSnackbarComponent, {
+      duration: this.snackBarDuration
     });
   }
 
@@ -33,3 +46,9 @@ export class MenuComponent implements OnInit {
   templateUrl: './menu.dialog.html'
 })
 export class MenuDialogComponent {}
+
+@Component({
+  selector: 'app-menusnackbar',
+  templateUrl: './menu.snackbar.html'
+})
+export class MenuSnackbarComponent {}
