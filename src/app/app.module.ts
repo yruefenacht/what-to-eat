@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 import { AppComponent } from './app.component';
 import { AddMenuComponent } from './addmenu/addmenu.component';
@@ -48,6 +49,7 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
     BrowserAnimationsModule,
     ScrollingModule,
     MatButtonModule,
