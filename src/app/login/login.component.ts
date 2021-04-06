@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
 
   submitHandler(): void {
     const { email, password } = this.loginForm.value;
+    this.authService.doLogin(email, password);
   }
 
   get email(): AbstractControl {

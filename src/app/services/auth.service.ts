@@ -11,21 +11,40 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
-  user: Observable<any>;
+  user$: Observable<User | undefined>;
 
   constructor(
     private fireauth: AngularFireAuth,
     private firestore: AngularFirestore,
     private router: Router
   ) {
-    this.user = this.fireauth.authState.pipe(
+    this.user$ = this.fireauth.authState.pipe(
       switchMap(user => {
         if (user) {
-          return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
+          return this.firestore.doc<User>(`User/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
       })
     );
+  }
+
+  async doLogin(email: string, password: string): Promise<void> {
+    const credential = await this.fireauth.signInWithEmailAndPassword(email, password);
+    return this.updateUser(credential.user);
+  }
+
+  async doLogout(): Promise<boolean> {
+    await this.fireauth.signOut();
+    return this.router.navigate(['/']);
+  }
+
+  private updateUser(user: User): Promise<void> {
+    const userRef = this.firestore.doc(`User/${user.uid}`);
+    const userData = {
+      email: user.email,
+      uid: user.uid
+    };
+    return userRef.set(userData, { merge: true });
   }
 }

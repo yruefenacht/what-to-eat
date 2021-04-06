@@ -45,15 +45,21 @@ header {
   height: 100%;
   margin-right: 2.5em;
   &__ref {
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-size: 0.7em;
-    font-weight: 400;
     a {
-      border-bottom: 1px dotted #333;
       text-decoration: none;
       color: white;
-      opacity: 0.95;
+    }
+    button {
+      cursor: pointer;
+      outline: none;
+      text-transform: uppercase;
+      background: transparent;
+      letter-spacing: 0.2em;
+      font-size: 0.7em;
+      font-weight: 400;
+      color: white;
+      border: none;
+      border-bottom: 1px dotted #333;
     }
   }
   &__separator {
