@@ -1,15 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import { AddMenuComponent } from './addmenu/addmenu.component';
 import { EditmenuComponent } from './editmenu/editmenu.component';
+import { LoginComponent } from './login/login.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  { path: '', component: MenulistComponent },
-  { path: 'new', component: AddMenuComponent },
-  { path: 'edit/:id', component: EditmenuComponent },
-  { path: '**', component: PagenotfoundComponent }
+  {
+    path: '',
+    component: MenulistComponent
+  },
+  {
+    path: 'new',
+    component: AddMenuComponent,
+    canActivate: [ LoggedInGuard ]
+  },
+  {
+    path: 'edit/:id',
+    component: EditmenuComponent,
+    canActivate: [ LoggedInGuard ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent
+  }
 ];
 
 @NgModule({

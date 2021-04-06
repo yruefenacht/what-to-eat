@@ -29,6 +29,7 @@ import { EditmenuComponent } from './editmenu/editmenu.component';
 import { MenuformComponent } from './menuform/menuform.component';
 
 import { environment } from '../environments/environment';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { environment } from '../environments/environment';
     EditmenuComponent,
     MenuformComponent,
     MenuDialogComponent,
-    MenuSnackbarComponent
+    MenuSnackbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,11 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase, () => 'what-to-eat',
+      {
+        authGuardFallbackURL: 'login',
+        authGuardLoggedInURL: ''
+      }),
     BrowserAnimationsModule,
     ScrollingModule,
     MatButtonModule,
