@@ -9,8 +9,9 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     NgxAuthFirebaseUIModule.forRoot(environment.firebase, () => 'what-to-eat',
       {
-        authGuardFallbackURL: 'login',
-        authGuardLoggedInURL: ''
+        enableFirestoreSync: true,
+        authGuardFallbackURL: '/login',
+        authGuardLoggedInURL: '/'
       }
     )
   ],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  redirectUrl: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.redirectUrl = params.redirectUrl;
+    });
+  }
+
+  onSuccess(): void {
+    console.log(this.redirectUrl);
+    this.authService.user.subscribe(user => console.log(user));
+    this.router.navigate([this.redirectUrl]);
   }
 
 }
