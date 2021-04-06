@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import { AddMenuComponent } from './addmenu/addmenu.component';
 import { EditmenuComponent } from './editmenu/editmenu.component';
 import { LoginComponent } from './login/login.component';
@@ -14,13 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: AddMenuComponent,
-    canActivate: [ LoggedInGuard ]
+    component: AddMenuComponent
   },
   {
     path: 'edit/:id',
-    component: EditmenuComponent,
-    canActivate: [ LoggedInGuard ]
+    component: EditmenuComponent
   },
   {
     path: 'login',

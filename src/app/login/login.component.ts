@@ -22,10 +22,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSuccess(): void {
-    console.log(this.redirectUrl);
-    this.authService.user.subscribe(user => console.log(user));
-    this.router.navigate([this.redirectUrl]);
-  }
-
 }
