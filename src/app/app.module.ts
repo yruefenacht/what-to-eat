@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AppFirebaseModule } from './app-firebase.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -16,9 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 import { AppComponent } from './app.component';
 import { AddMenuComponent } from './addmenu/addmenu.component';
@@ -27,8 +23,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent, MenuDialogComponent, MenuSnackbarComponent } from './menu/menu.component';
 import { EditmenuComponent } from './editmenu/editmenu.component';
 import { MenuformComponent } from './menuform/menuform.component';
-
-import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -47,15 +41,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireAuthModule,
-    NgxAuthFirebaseUIModule.forRoot(environment.firebase, () => 'what-to-eat',
-      {
-        authGuardFallbackURL: 'login',
-        authGuardLoggedInURL: ''
-      }),
+    AppFirebaseModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ScrollingModule,
     MatButtonModule,
@@ -67,7 +54,6 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule,
     NgxMatFileInputModule
   ],
   providers: [],
