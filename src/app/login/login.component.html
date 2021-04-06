@@ -1,6 +1,6 @@
 <h2>Sign in first</h2>
 
-<form [formGroup]="loginForm" (ngSubmit)="submitHandler()">
+<form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="submitHandler()">
 
   <mat-form-field>
     <input matInput placeholder="Email" formControlName="email">
@@ -22,3 +22,5 @@
   <button mat-raised-button [disabled]="loginForm.invalid" type="submit" color="primary">Login</button>
 
 </form>
+
+<mat-spinner *ngIf="isLoading" [strokeWidth]="5"></mat-spinner>

@@ -12,7 +12,8 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  redirectUrl: string;
+  isLoading = false;
+  redirectUrl = '';
   errorMsgDuration = 5000;
 
   constructor(
@@ -35,15 +36,24 @@ export class LoginComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
-      this.redirectUrl = params.redirectUrl;
+      if (params.redirectUrl) {
+        this.redirectUrl = params.redirectUrl;
+      }
     });
   }
 
   submitHandler(): void {
+    this.isLoading = true;
     const { email, password } = this.loginForm.value;
     this.authService.doLogin(email, password)
+      .then(() => {
+        this.router.navigate([this.redirectUrl]);
+      })
       .catch(err => {
         this.snackbar.open(err.message, '', { duration: this.errorMsgDuration });
+      })
+      .finally(() => {
+        this.isLoading = false;
       });
   }
 
