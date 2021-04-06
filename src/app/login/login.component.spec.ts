@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 
@@ -14,6 +18,12 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
+      imports: [
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule
+      ],
       providers: [
         { provide: AuthService, useClass: AuthServiceMock },
         { provide: Router, useClass: class { navigate = jasmine.createSpy('navigate'); } },
