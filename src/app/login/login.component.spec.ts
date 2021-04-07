@@ -5,8 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthService } from '../services/auth.service';
 import { AuthService as AuthServiceMock } from '../services/auth.service.mock';
@@ -26,12 +25,11 @@ describe('LoginComponent', () => {
         MatSnackBarModule,
         MatProgressSpinnerModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
       providers: [
-        { provide: AuthService, useClass: AuthServiceMock },
-        { provide: Router, useClass: class { navigate = jasmine.createSpy('navigate'); } },
-        { provide: ActivatedRoute, useValue: { queryParams: of({ redirectUrl: 'fakeUrl' }) } }
+        { provide: AuthService, useClass: AuthServiceMock }
       ]
     })
     .compileComponents();

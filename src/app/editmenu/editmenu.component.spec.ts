@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
@@ -33,12 +33,11 @@ describe('EditmenuComponent', () => {
         MatChipsModule,
         NgxMatFileInputModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
       providers: [
-        { provide: MenuService, useClass: MenuMockService },
-        { provide: Router, useClass: class { navigate = jasmine.createSpy('navigate'); } },
-        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: (key) => 'fakeId' } } } }
+        { provide: MenuService, useClass: MenuMockService }
       ]
     })
     .compileComponents();

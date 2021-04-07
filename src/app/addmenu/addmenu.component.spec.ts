@@ -7,13 +7,14 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
-import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuService } from '../services/menu.service';
 import { MenuService as MenuMockService } from '../services/menu.service.mock';
 
 import { AddMenuComponent } from './addmenu.component';
 import { MenuformComponent } from '../menuform/menuform.component';
+
 
 describe('AddMenuComponent', () => {
   let component: AddMenuComponent;
@@ -33,11 +34,11 @@ describe('AddMenuComponent', () => {
         MatChipsModule,
         NgxMatFileInputModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
       providers: [
-        { provide: MenuService, useClass: MenuMockService },
-        { provide: Router, useClass: class { navigate = jasmine.createSpy('navigate'); } },
+        { provide: MenuService, useClass: MenuMockService }
       ]
     })
     .compileComponents();
