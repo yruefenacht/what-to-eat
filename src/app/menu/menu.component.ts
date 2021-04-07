@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
 
   @Input() menu: Menu;
   @Input() isLast: boolean;
-  snackBarDuration = 5000;
+  private snackBarDuration = 5000;
 
   constructor(
     private menuService: MenuService,
@@ -30,17 +30,16 @@ export class MenuComponent implements OnInit {
     const menuDialogRef = this.dialog.open(MenuDialogComponent);
     menuDialogRef.afterClosed().subscribe(deleteMenu => {
       if (deleteMenu) {
-        this.menuService.deleteMenu(this.menu.id, this.menu.imageBucket).then(res => {
-          this.openSnackbar();
-        });
+        this.menuService.deleteMenu(this.menu.id, this.menu.imageBucket)
+          .then(() => {
+            this.openSnackbar();
+          });
       }
     });
   }
 
-  openSnackbar(): void {
-    this.snackbar.openFromComponent(MenuSnackbarComponent, {
-      duration: this.snackBarDuration
-    });
+  private openSnackbar(): void {
+    this.snackbar.open('Menu deleted', '', { duration: this.snackBarDuration });
   }
 
   get auth(): Observable<User | null> {
@@ -54,9 +53,3 @@ export class MenuComponent implements OnInit {
   templateUrl: './menu.dialog.html'
 })
 export class MenuDialogComponent {}
-
-@Component({
-  selector: 'app-menusnackbar',
-  templateUrl: './menu.snackbar.html'
-})
-export class MenuSnackbarComponent {}

@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isLoading = false;
-  redirectUrl = '';
-  errorMsgDuration = 5000;
+  private redirectUrl = '';
+  private errorMsgDuration = 5000;
 
   constructor(
     private formBuilder: FormBuilder,

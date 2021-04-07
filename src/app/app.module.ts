@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { AddMenuComponent } from './addmenu/addmenu.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { MenuComponent, MenuDialogComponent, MenuSnackbarComponent } from './menu/menu.component';
+import { MenuComponent, MenuDialogComponent } from './menu/menu.component';
 import { EditmenuComponent } from './editmenu/editmenu.component';
 import { MenuformComponent } from './menuform/menuform.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +36,6 @@ import { HeaderComponent } from './header/header.component';
     EditmenuComponent,
     MenuformComponent,
     MenuDialogComponent,
-    MenuSnackbarComponent,
     LoginComponent,
     HeaderComponent
   ],

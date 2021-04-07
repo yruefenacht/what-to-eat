@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  snackBarDuration = 3000;
+  private snackBarDuration = 3000;
 
   constructor(private authService: AuthService, private snackbar: MatSnackBar) { }
 
