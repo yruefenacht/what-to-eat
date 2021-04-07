@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
-  user$: Observable<User | undefined>;
+  user$: Observable<User | null>;
 
   constructor(
     private fireauth: AngularFireAuth,

@@ -7,13 +7,11 @@
       <div class="hl__line"></div>
     </div>
     <div class="refs">
-      <div class="refs__ref"><button><a routerLink="">Home</a></button></div>
-      <div class="refs__separator"></div>
-      <div class="refs__ref"><button><a href="https://github.com/yruefenacht/what-to-eat">Github</a></button></div>
-      <div *ngIf="authService.user$ | async" class="refs__separator"></div>
-      <div *ngIf="authService.user$ | async" class="refs__ref">
-        <button (click)="authService.doLogout()">Logout</button>
-      </div>
+      <button routerLink="">Home</button>
+      <div *ngIf="(auth | async) === null" class="refs__separator"></div>
+      <button *ngIf="(auth | async) === null" routerLink="login">Login</button>
+      <div *ngIf="auth | async" class="refs__separator"></div>
+      <button *ngIf="auth | async" (click)="authService.doLogout()">Logout</button>
     </div>
   </span>
 </header>
