@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 import { Menu } from '../models/menu.model';
+import { User } from '../models/user.model';
+import { AuthService } from '../services/auth.service';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -17,6 +20,7 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private menuService: MenuService,
+    private authService: AuthService,
     private dialog: MatDialog,
     private snackbar: MatSnackBar) { }
 
@@ -37,6 +41,10 @@ export class MenuComponent implements OnInit {
     this.snackbar.openFromComponent(MenuSnackbarComponent, {
       duration: this.snackBarDuration
     });
+  }
+
+  get auth(): Observable<User | null> {
+    return this.authService.user$;
   }
 
 }
