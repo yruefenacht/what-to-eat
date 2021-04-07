@@ -34,6 +34,7 @@ export class MenuformComponent implements OnInit {
       ]],
       duration: [null, [
         Validators.required,
+        Validators.pattern('^[0-9]*$'),
         Validators.maxLength(3),
         Validators.min(5),
         Validators.max(999)
