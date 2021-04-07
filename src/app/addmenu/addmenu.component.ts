@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuService } from '../services/menu.service';
+import { MenuService } from '../services/menu/menu.service';
 import { MenuForm } from '../models/menuform.model';
 
 @Component({

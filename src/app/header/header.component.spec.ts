@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { AuthService } from '../services/auth.service';
-import { AuthService as AuthServiceMock } from '../services/auth.service.mock';
+import { AuthService } from '../services/auth/auth.service';
+import { AuthService as AuthServiceMock } from '../services/auth/auth.service.mock';
 
 import { HeaderComponent } from './header.component';
 

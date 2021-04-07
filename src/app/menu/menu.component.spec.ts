@@ -5,10 +5,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MenuService } from '../services/menu.service';
-import { MenuService as MenuMockService } from '../services/menu.service.mock';
-import { AuthService } from '../services/auth.service';
-import { AuthService as AuthServiceMock } from '../services/auth.service.mock';
+import { MenuService } from '../services/menu/menu.service';
+import { MenuService as MenuMockService } from '../services/menu/menu.service.mock';
+import { AuthService } from '../services/auth/auth.service';
+import { AuthService as AuthServiceMock } from '../services/auth/auth.service.mock';
 
 import { MenuComponent } from './menu.component';
 

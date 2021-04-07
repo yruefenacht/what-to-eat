@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MenuService } from '../services/menu.service';
-import { MenuService as MenuMockService } from '../services/menu.service.mock';
+import { MenuService } from '../services/menu/menu.service';
+import { MenuService as MenuMockService } from '../services/menu/menu.service.mock';
 
 import { AddMenuComponent } from './addmenu.component';
 import { MenuformComponent } from '../menuform/menuform.component';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Menu } from '../models/menu.model';
-import { MenuForm } from '../models/menuform.model';
+import { Menu } from '../../models/menu.model';
+import { MenuForm } from '../../models/menuform.model';
 import { IMenuService } from './menu.service.interface';
 
 @Injectable({

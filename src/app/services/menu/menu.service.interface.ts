@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { Menu } from '../models/menu.model';
-import { MenuForm } from '../models/menuform.model';
+import { Menu } from '../../models/menu.model';
+import { MenuForm } from '../../models/menuform.model';
 
 export interface IMenuService {
   getMenus(): Observable<Menu[]>;

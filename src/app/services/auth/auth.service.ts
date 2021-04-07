@@ -4,12 +4,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
+import { IAuthService } from './auth.service.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements IAuthService {
 
   user$: Observable<User | null>;
 

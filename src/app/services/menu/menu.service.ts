@@ -3,8 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { Menu } from '../models/menu.model';
-import { MenuForm } from '../models/menuform.model';
+import { Menu } from '../../models/menu.model';
+import { MenuForm } from '../../models/menuform.model';
 import { IMenuService } from './menu.service.interface';
 
 @Injectable({

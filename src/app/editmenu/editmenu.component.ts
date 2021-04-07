@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuForm } from '../models/menuform.model';
-import { MenuService } from '../services/menu.service';
+import { MenuService } from '../services/menu/menu.service';
 
 @Component({
   selector: 'app-editmenu',

@@ -4,8 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Menu } from '../models/menu.model';
 import { User } from '../models/user.model';
-import { AuthService } from '../services/auth.service';
-import { MenuService } from '../services/menu.service';
+import { AuthService } from '../services/auth/auth.service';
+import { MenuService } from '../services/menu/menu.service';
 
 @Component({
   selector: 'app-menu',

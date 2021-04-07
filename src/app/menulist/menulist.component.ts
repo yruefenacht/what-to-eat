@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MenuService } from '../services/menu.service';
+import { MenuService } from '../services/menu/menu.service';
 import { Menu } from '../models/menu.model';
 
 @Component({
