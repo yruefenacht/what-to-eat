@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
@@ -10,9 +11,16 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  snackBarDuration = 3000;
+
+  constructor(private authService: AuthService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void { }
+
+  async logoutClick(): Promise<void> {
+    await this.authService.doLogout();
+    this.snackbar.open('Bye!', '', { duration: this.snackBarDuration });
+  }
 
   get auth(): Observable<User | null> {
     return this.authService.user$;

@@ -6,6 +6,7 @@ import { AuthService } from './services/auth.service';
 import { AuthService as AuthServiceMock } from './services/auth.service.mock';
 
 import { AppComponent } from './app.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -15,6 +16,7 @@ describe('AppComponent', () => {
         HeaderComponent
       ],
       imports: [
+        MatSnackBarModule,
         RouterTestingModule
       ],
       providers: [
