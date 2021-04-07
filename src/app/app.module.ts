@@ -24,6 +24,7 @@ import { MenuComponent, MenuDialogComponent, MenuSnackbarComponent } from './men
 import { EditmenuComponent } from './editmenu/editmenu.component';
 import { MenuformComponent } from './menuform/menuform.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     MenuformComponent,
     MenuDialogComponent,
     MenuSnackbarComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

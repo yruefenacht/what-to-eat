@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HeaderComponent } from './header/header.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthService } from './services/auth.service';
@@ -10,7 +11,8 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
       imports: [
         RouterTestingModule
