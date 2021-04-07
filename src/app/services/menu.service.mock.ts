@@ -46,8 +46,9 @@ export class MenuService implements IMenuService {
     });
   }
 
-  uploadMenu(payload: any, onSuccess: () => void): void {
-    this.menus.push(payload);
-    onSuccess();
+  uploadMenu(payload: any): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      resolve(this.menus.push(payload));
+    });
   }
 }

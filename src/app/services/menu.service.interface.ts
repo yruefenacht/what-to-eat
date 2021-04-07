@@ -7,5 +7,5 @@ export interface IMenuService {
   getMenuById(id: string): Observable<MenuForm>;
   updateMenu(id: string, menu: Menu): Promise<void>;
   deleteMenu(id: string, imageBucket: string): Promise<void>;
-  uploadMenu(payload: any, onSuccess: () => void): void;
+  uploadMenu(payload: any): Promise<any>;
 }

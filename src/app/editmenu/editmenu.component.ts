@@ -33,12 +33,16 @@ export class EditmenuComponent implements OnInit {
 
   submitHandler(editedMenu: MenuForm): void {
     this.loading = true;
-    this.menuService.updateMenu(this.menuId, editedMenu).then(res => {
-      this.loading = false;
-      this.router.navigate(['']);
-    }).catch(err => {
-      console.log(err);
-    });
+    this.menuService.updateMenu(this.menuId, editedMenu)
+      .then(() => {
+        this.router.navigate(['']);
+      })
+      .catch(err => {
+        console.log(err.message);
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
 }

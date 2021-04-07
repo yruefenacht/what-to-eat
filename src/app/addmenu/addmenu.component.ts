@@ -21,10 +21,16 @@ export class AddMenuComponent implements OnInit {
 
   submitHandler(menu: MenuForm): void {
     this.loading = true;
-    this.menuService.uploadMenu(menu, () => {
-      this.loading = false;
-      this.router.navigate(['']);
-    });
+    this.menuService.uploadMenu(menu)
+      .then(() => {
+        this.router.navigate(['']);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
 }

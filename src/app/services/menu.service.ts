@@ -13,7 +13,6 @@ import { IMenuService } from './menu.service.interface';
 export class MenuService implements IMenuService {
 
   menuList: AngularFirestoreCollection<Menu>;
-  uploadTask: AngularFireUploadTask;
 
   constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {
     this.menuList = this.firestore.collection('Menu');
@@ -36,20 +35,19 @@ export class MenuService implements IMenuService {
     return this.menuList.doc(id).delete();
   }
 
-  uploadMenu(payload: any, onSuccess: () => void): void {
+  uploadMenu(payload: any): Promise<any> {
     const file = payload.image;
     const filepath = `menus/${new Date().getTime()}_${file.name}`;
     const ref = this.storage.ref(filepath);
-    this.uploadTask = this.storage.upload(filepath, file);
+    const uploadTask = this.storage.upload(filepath, file);
 
-    this.uploadTask.snapshotChanges().pipe(
+    return uploadTask.snapshotChanges().pipe(
       finalize(async () => {
         const menuImageURL = await ref.getDownloadURL().toPromise();
         payload.image = menuImageURL;
         payload.imageBucket = filepath;
         await this.menuList.add(payload);
-        onSuccess();
       })
-    ).subscribe();
+    ).toPromise();
   }
 }
