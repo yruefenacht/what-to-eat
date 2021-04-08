@@ -5,6 +5,7 @@ import { EditmenuComponent } from './editmenu/editmenu.component';
 import { LoginComponent } from './login/login.component';
 import { MenulistComponent } from './menulist/menulist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LoginGuard } from './services/guard/login.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: AddMenuComponent
+    component: AddMenuComponent,
+    canActivate: [ LoginGuard ]
   },
   {
     path: 'edit/:id',
-    component: EditmenuComponent
+    component: EditmenuComponent,
+    canActivate: [ LoginGuard ]
   },
   {
     path: 'login',

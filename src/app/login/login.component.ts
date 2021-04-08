@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
-      if (params.redirectUrl) {
-        this.redirectUrl = params.redirectUrl;
+      if (params.redirect) {
+        this.redirectUrl = params.redirect;
       }
     });
   }
