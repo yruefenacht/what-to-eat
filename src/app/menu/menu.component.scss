@@ -16,10 +16,10 @@ mat-icon {
 
 .menu {
   display: grid;
-  grid-template-columns: 120px auto 50px;
+  grid-template-columns: 150px auto 50px;
   width: clamp(300px, 80vw, 750px);
-  border-bottom: 1px solid #dee3e0;
   padding: 2em;
+  margin: 2em 0;
   &--col1, &--col3 {
     @include flex-box();
   }
@@ -33,20 +33,19 @@ mat-icon {
       min-height: 30px;
     }
   }
-  &--isLast {
-    border-bottom: none;
-  }
 }
 
 .menu__image {
   width: 120px;
   height: 120px;
+  margin: 0;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0px 0px 15px 0px #aaa;
 }
 
 .menu__title {
+  margin: 0;
   font-size: 1.65em;
   font-weight: 400;
   color: #444;
@@ -73,7 +72,7 @@ mat-icon {
     display: inline-block;
     text-transform: uppercase;
     font-size: 0.85em;
-    font-weight: bold;
+    font-weight: 500;
     color: white;
     background: #9dab86;
     padding: 0.4em 0.75em;
@@ -88,16 +87,23 @@ mat-icon {
     grid-template-rows: 160px auto;
     grid-auto-flow: column;
     grid-template-areas: 
-      "image edit"
+      "image image"
       "menu edit";
+    padding: 0;
     &--col1 {
-      justify-content: flex-start;
+      grid-area: image;
     }
     &--col2 {
-      padding: 0;
+      padding: 2em 0 2em 2em;
     }
     &--col3 {
       grid-area: edit;
     }
+  }
+  .menu__image {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
   }
 }

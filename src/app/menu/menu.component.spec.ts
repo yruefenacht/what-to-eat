@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuService } from '../services/menu/menu.service';
@@ -24,6 +25,7 @@ describe('MenuComponent', () => {
         MatMenuModule,
         MatDialogModule,
         MatSnackBarModule,
+        MatCardModule,
         RouterTestingModule
       ],
       providers: [

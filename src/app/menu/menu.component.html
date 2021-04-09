@@ -1,10 +1,10 @@
-<div class="menu" [class.menu--isLast]="isLast">
+<mat-card class="menu">
   <div class="menu--col1">
     <img class="menu__image" [src]="menu.image">
   </div>
-  <div class="menu--col2">
+  <mat-card-content class="menu--col2">
     <li>
-      <div class="menu__title">{{ menu.title }}</div>
+      <mat-card-title class="menu__title">{{ menu.title }}</mat-card-title>
     </li>
     <li>
       <div class="menu__ingredients">
@@ -15,13 +15,13 @@
     </li>
     <li>
       <mat-icon aria-label="Duration">schedule</mat-icon>
-      <div class="menu__duration"><b>{{ menu.duration }}</b> min</div>
+      <div class="menu__duration"><b>{{ menu.duration }}</b>&nbsp;min</div>
       <div class="menu__tags">
         <div class="menu__tags__item" *ngFor="let tag of menu.tags">{{ tag }}</div>
       </div>
     </li>
-  </div>
-  <div class="menu--col3">
+  </mat-card-content>
+  <mat-card-actions class="menu--col3">
     <button mat-icon-button [matMenuTriggerFor]="menuOptions">
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -35,5 +35,5 @@
         <span>Delete</span>
       </button>
     </mat-menu>
-  </div>
-</div>
+  </mat-card-actions>
+</mat-card>

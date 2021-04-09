@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ import { HeaderComponent } from './header/header.component';
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatCardModule,
     NgxMatFileInputModule
   ],
   providers: [],
