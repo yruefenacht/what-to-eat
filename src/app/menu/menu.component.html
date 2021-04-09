@@ -1,31 +1,27 @@
 <div class="menu" [class.menu--isLast]="isLast">
-  <div class="menu--section-left">
+  <div class="menu--col1">
     <img class="menu__image" [src]="menu.image">
   </div>
-  <div>
-    <ul>
-      <li>
-        <div class="menu__title">{{ menu.title }}</div>
-      </li>
-      <li>
-        <div class="menu__ingredients">
-          <div class="menu__ingredients__item" *ngFor="let ingredient of menu.ingredients; last as isLast">
-            {{ ingredient }}<span *ngIf="!isLast">,</span>
-          </div>
+  <div class="menu--col2">
+    <li>
+      <div class="menu__title">{{ menu.title }}</div>
+    </li>
+    <li>
+      <div class="menu__ingredients">
+        <div class="menu__ingredients__item" *ngFor="let ingredient of menu.ingredients; last as isLast">
+          {{ ingredient }}<span *ngIf="!isLast">,</span>
         </div>
-      </li>
-      <li>
-        <mat-icon aria-label="Duration">schedule</mat-icon>
-        <div class="menu__duration"><b>{{ menu.duration }}</b> min</div>
-        <div class="menu__tags">
-          <div class="menu__tags__item" *ngFor="let tag of menu.tags">
-            {{ tag }}
-          </div>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </li>
+    <li>
+      <mat-icon aria-label="Duration">schedule</mat-icon>
+      <div class="menu__duration"><b>{{ menu.duration }}</b> min</div>
+      <div class="menu__tags">
+        <div class="menu__tags__item" *ngFor="let tag of menu.tags">{{ tag }}</div>
+      </div>
+    </li>
   </div>
-  <div class="menu--section-right">
+  <div class="menu--col3">
     <button mat-icon-button [matMenuTriggerFor]="menuOptions">
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -39,6 +35,5 @@
         <span>Delete</span>
       </button>
     </mat-menu>
-    
   </div>
 </div>
