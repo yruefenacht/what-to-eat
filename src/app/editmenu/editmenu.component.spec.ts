@@ -1,4 +1,3 @@
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +7,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { MenuService } from '../services/menu/menu.service';
 import { MenuService as MenuMockService } from '../services/menu/menu.service.mock';
@@ -31,7 +31,7 @@ describe('EditmenuComponent', () => {
         MatInputModule,
         MatSelectModule,
         MatChipsModule,
-        NgxMatFileInputModule,
+        MaterialFileInputModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterTestingModule

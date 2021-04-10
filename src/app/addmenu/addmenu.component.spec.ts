@@ -6,7 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuService } from '../services/menu/menu.service';
@@ -32,7 +32,7 @@ describe('AddMenuComponent', () => {
         MatInputModule,
         MatSelectModule,
         MatChipsModule,
-        NgxMatFileInputModule,
+        MaterialFileInputModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterTestingModule
