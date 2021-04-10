@@ -3,6 +3,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { requireImageFormat } from '../directives/imagevalidator.directive';
+import { FileValidator } from 'ngx-material-file-input';
 import { MenuForm } from '../models/menuform.model';
 
 @Component({
@@ -18,6 +19,7 @@ export class MenuformComponent implements OnInit {
   @Output() submitEvent = new EventEmitter<MenuForm>();
   menuForm: FormGroup;
   ingredientList: string[] = [];
+  readonly maxImageSize = 104857600; // 100MB = 100 * 2 ^ 20
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
 
@@ -46,6 +48,7 @@ export class MenuformComponent implements OnInit {
       this.menuForm.addControl('image',
         new FormControl(null, [
           Validators.required,
+          FileValidator.maxContentSize(this.maxImageSize),
           requireImageFormat(['image/jpeg', 'image/png'])
         ])
       );
@@ -92,7 +95,7 @@ export class MenuformComponent implements OnInit {
   }
 
   get image(): AbstractControl {
-    return this.hasImage ? this.menuForm.get('image') : null;
+    return this.menuForm.get('image');
   }
 
   get ingredients(): AbstractControl {

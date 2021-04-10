@@ -3,12 +3,15 @@
   <mat-form-field *ngIf="hasImage">
     <ngx-mat-file-input
       placeholder="Select image"
-      [formControl]="image"
-      [multiple]="false"
+      formControlName="image"
       [accept]="'.png, .jpg, .jpeg'"
     ></ngx-mat-file-input>
+    <mat-icon matSuffix>image</mat-icon>
     <mat-error *ngIf="image.errors?.imageFormat && image.touched">
       Accepted formats: png, jpg, jpeg
+    </mat-error>
+    <mat-error *ngIf="image.errors?.maxContentSize">
+      The total size must not exceed 100MB
     </mat-error>
   </mat-form-field>
 

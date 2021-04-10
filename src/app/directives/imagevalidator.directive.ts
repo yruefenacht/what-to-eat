@@ -5,7 +5,7 @@ export function requireImageFormat(formats: string[]): ValidatorFn {
     if (!control.value) {
       return null;
     }
-    const valid = formats.includes(control.value.type);
+    const valid = formats.includes(control.value.files[0].type);
     return !valid ? { imageFormat: true } : null;
   };
 }
