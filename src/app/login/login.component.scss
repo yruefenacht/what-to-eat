@@ -6,8 +6,7 @@ form {
 }
   
 mat-form-field {
-  width: 60%;
-  max-width: 500px;
+  width: clamp(300px, 90%, 500px);
 }
 
 mat-spinner {
