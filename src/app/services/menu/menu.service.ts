@@ -36,7 +36,7 @@ export class MenuService implements IMenuService {
   }
 
   uploadMenu(payload: any): Promise<any> {
-    const file = payload.image;
+    const file = payload.image.files[0];
     const filepath = `menus/${new Date().getTime()}_${file.name}`;
     const ref = this.storage.ref(filepath);
     const uploadTask = this.storage.upload(filepath, file);
