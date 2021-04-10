@@ -12,7 +12,6 @@ cdk-virtual-scroll-viewport {
 .menus {
   max-width: 1400px;
   margin: 0 auto;
-  padding-bottom: 3em;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -24,6 +23,7 @@ cdk-virtual-scroll-viewport {
 @media screen and (max-width: 700px) {
   .menus {
     grid-template-columns: 1fr;
+    padding-bottom: 3em;
   }
 }
 

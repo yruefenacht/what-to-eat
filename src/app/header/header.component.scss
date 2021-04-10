@@ -73,6 +73,12 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+  header {
+    height: 120px;
+  }
+  .hl {
+    margin: 0;
+  }
   .header__grid {
     grid-template-columns: 100%;
     grid-template-rows: auto auto;
