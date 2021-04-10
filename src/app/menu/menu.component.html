@@ -1,39 +1,41 @@
-<mat-card class="menu">
-  <div class="menu--col1">
-    <img class="menu__image" [src]="menu.image">
-  </div>
-  <mat-card-content class="menu--col2">
-    <li>
+<mat-card>
+  <img class="menu__image" alt="Menu Image" [src]="menu.image">
+  <mat-card-content>
+    <li class="menu__grid--col1">
       <mat-card-title class="menu__title">{{ menu.title }}</mat-card-title>
     </li>
-    <li>
+    <li class="menu__grid--col2">
       <div class="menu__ingredients">
         <div class="menu__ingredients__item" *ngFor="let ingredient of menu.ingredients; last as isLast">
           {{ ingredient }}<span *ngIf="!isLast">,</span>
         </div>
       </div>
     </li>
-    <li>
-      <mat-icon aria-label="Duration">schedule</mat-icon>
-      <div class="menu__duration"><b>{{ menu.duration }}</b>&nbsp;min</div>
+    <li class="menu__grid--col3">
+      <div class="menu__duration">
+        <mat-icon aria-label="Duration">schedule</mat-icon>
+        <b>&nbsp;{{ menu.duration }}</b>&nbsp;min
+      </div>
       <div class="menu__tags">
         <div class="menu__tags__item" *ngFor="let tag of menu.tags">{{ tag }}</div>
       </div>
     </li>
+    <li class="menu__grid--col4">
+      <mat-card-actions>
+        <button mat-icon-button [matMenuTriggerFor]="menuOptions">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menuOptions="matMenu">
+          <button mat-menu-item [routerLink]="['/edit', menu.id]">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button *ngIf="auth | async" mat-menu-item (click)="deleteMenu()">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </mat-card-actions>
+    </li>
   </mat-card-content>
-  <mat-card-actions class="menu--col3">
-    <button mat-icon-button [matMenuTriggerFor]="menuOptions">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menuOptions="matMenu">
-      <button mat-menu-item [routerLink]="['/edit', menu.id]">
-        <mat-icon>edit</mat-icon>
-        <span>Edit</span>
-      </button>
-      <button *ngIf="auth | async" mat-menu-item (click)="deleteMenu()">
-        <mat-icon>delete</mat-icon>
-        <span>Delete</span>
-      </button>
-    </mat-menu>
-  </mat-card-actions>
 </mat-card>

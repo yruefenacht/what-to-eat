@@ -13,6 +13,7 @@ header {
 
 .header__grid {
   max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
   height: 100%;
   display: grid;
@@ -50,7 +51,7 @@ header {
 
 .refs {
   @include flex-box();
-  margin-right: 2.5em;
+  margin-right: 2em;
   button {
     cursor: pointer;
     outline: none;

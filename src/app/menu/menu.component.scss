@@ -5,7 +5,6 @@
 }
 
 $mat-icon-size: 22px;
-
 mat-icon {
   color: #6e7881;
   width: $mat-icon-size;
@@ -14,34 +13,47 @@ mat-icon {
   font-size: $mat-icon-size;
 }
 
-.menu {
-  display: grid;
-  grid-template-columns: 150px auto 50px;
-  width: clamp(300px, 80vw, 750px);
-  padding: 2em;
-  margin: 2em 0;
-  &--col1, &--col3 {
-    @include flex-box();
-  }
-  &--col2 {
-    padding-left: 2em;
-    overflow: hidden;
-    li {
-      @include flex-box(flex-start, center);
-      flex-wrap: wrap;
-      list-style-type: none;
-      min-height: 30px;
-    }
-  }
+mat-card {
+  width: clamp(300px, 90%, 450px);
+  margin: 2em auto 0;
+  padding: 0;
 }
 
 .menu__image {
-  width: 120px;
-  height: 120px;
-  margin: 0;
-  border-radius: 50%;
+  width: 100%;
+  height: 200px;
   object-fit: cover;
-  box-shadow: 0px 0px 15px 0px #aaa;
+}
+
+mat-card-content {
+  display: grid;
+  grid-template-columns: 95% auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "title edit"
+    "ingredients edit"
+    "tags edit";
+  padding: 16px;
+  li {
+    list-style-type: none;
+  }
+  .menu__grid {
+    &--col1 {
+      grid-area: title;
+    }
+    &--col2 {
+      grid-area: ingredients;
+    }
+    &--col3 {
+      grid-area: tags;
+      @include flex-box(flex-start, center);
+      flex-wrap: wrap;
+    }
+    &--col4 {
+      grid-area: edit;
+      @include flex-box();
+    }
+  }
 }
 
 .menu__title {
@@ -63,6 +75,7 @@ mat-icon {
 
 .menu__duration {
   display: flex;
+  align-items: center;
   margin: 0 1em 0 0.25em;
   color: #6e7881;
 }
@@ -78,32 +91,5 @@ mat-icon {
     padding: 0.4em 0.75em;
     margin: 0.5em 0.5em 0.5em 0;
     border-radius: 3px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .menu {
-    grid-template-columns: 90% auto;
-    grid-template-rows: 160px auto;
-    grid-auto-flow: column;
-    grid-template-areas: 
-      "image image"
-      "menu edit";
-    padding: 0;
-    &--col1 {
-      grid-area: image;
-    }
-    &--col2 {
-      padding: 2em 0 2em 2em;
-    }
-    &--col3 {
-      grid-area: edit;
-    }
-  }
-  .menu__image {
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: none;
   }
 }

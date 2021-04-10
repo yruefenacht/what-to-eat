@@ -10,8 +10,21 @@ cdk-virtual-scroll-viewport {
 }
 
 .menus {
-  @include flex-center();
-  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 3em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width: 950px) {
+  .menus {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 700px) {
+  .menus {
+    grid-template-columns: 1fr;
+  }
 }
 
 .no-menus {
