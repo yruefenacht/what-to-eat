@@ -1,17 +1,22 @@
 <header>
-  <span>
-    <h1>What to eat</h1>
-    <div class="hl">
-      <div class="hl__line"></div>
-      <div class="hl__square"></div>
-      <div class="hl__line"></div>
-    </div>
-    <div class="refs">
-      <button routerLink="">Home</button>
-      <div *ngIf="(auth | async) === null" class="refs__separator"></div>
-      <button *ngIf="(auth | async) === null" routerLink="login">Login</button>
-      <div *ngIf="auth | async" class="refs__separator"></div>
-      <button *ngIf="auth | async" (click)="logoutClick()">Logout</button>
-    </div>
-  </span>
+  <div class="header__grid">
+    <li class="header__grid--col1"></li>
+    <li class="header__grid--col2">
+      <h1>What to eat</h1>
+      <div class="hl">
+        <div class="hl__line"></div>
+        <div class="hl__square"></div>
+        <div class="hl__line"></div>
+      </div>
+    </li>
+    <li class="header__grid--col3">
+      <div class="refs">
+        <button routerLink="">Home</button>
+        <div *ngIf="(auth | async) === null" class="refs__separator"></div>
+        <button *ngIf="(auth | async) === null" routerLink="login">Login</button>
+        <div *ngIf="auth | async" class="refs__separator"></div>
+        <button *ngIf="auth | async" (click)="logoutClick()">Logout</button>
+      </div>
+    </li>
+  </div>
 </header>
