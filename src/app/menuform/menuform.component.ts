@@ -21,7 +21,7 @@ export class MenuformComponent implements OnInit {
   ingredientList: string[] = [];
   readonly maxImageSize = 10_485_760; // 10MB = 10 * 2 ^ 20
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen'];
+  readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen', 'Dessert'];
 
   constructor(private formBuilder: FormBuilder) { }
 
