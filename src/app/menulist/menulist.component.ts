@@ -11,6 +11,7 @@ import { Menu } from '../models/menu.model';
 export class MenulistComponent implements OnInit {
 
   menus: Observable<Menu[]>;
+  searchText = '';
 
   constructor(private menuService: MenuService) { }
 

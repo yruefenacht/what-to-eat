@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppFirebaseModule } from './app-firebase.module';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -46,6 +47,7 @@ import { SearchPipe } from './services/pipe/search.pipe';
     BrowserModule,
     AppRoutingModule,
     AppFirebaseModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ScrollingModule,

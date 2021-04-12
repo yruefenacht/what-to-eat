@@ -1,7 +1,8 @@
 <section>
+  <input type="text" [(ngModel)]="searchText" placeholder="Search Menus..."/>
   <cdk-virtual-scroll-viewport itemSize="190">
     <div class="menus" *ngIf="menus; else noMenus">
-      <app-menu *cdkVirtualFor="let menu of menus | async; last as isLast"
+      <app-menu *cdkVirtualFor="let menu of (menus | async) | search: searchText; last as isLast"
         [menu]="menu"
         [isLast]="isLast">
       </app-menu>

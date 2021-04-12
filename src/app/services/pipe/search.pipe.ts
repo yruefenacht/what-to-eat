@@ -17,11 +17,16 @@ export class SearchPipe implements PipeTransform {
     searchText = searchText.toLowerCase();
 
     return menus.filter(menu => {
-      const ingredients = menu.ingredients.map(ingredient => ingredient.toLowerCase());
-      const tags = menu.tags.map(tag => tag.toLowerCase());
-      return menu.title.includes(searchText)
-        || ingredients.includes(searchText)
-        || tags.includes(searchText);
+
+      const matchingIngredients = menu.ingredients
+        .filter(ingredient => ingredient.toLowerCase().includes(searchText));
+
+      const matchingTags = menu.tags
+        .filter(tag => tag.toLowerCase().includes(searchText));
+
+      return menu.title.toLowerCase().includes(searchText)
+        || matchingIngredients.length !== 0
+        || matchingTags.length !== 0;
     });
   }
 
