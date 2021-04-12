@@ -26,6 +26,7 @@ import { EditmenuComponent } from './editmenu/editmenu.component';
 import { MenuformComponent } from './menuform/menuform.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { SearchPipe } from './services/pipe/search.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HeaderComponent } from './header/header.component';
     MenuformComponent,
     MenuDialogComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

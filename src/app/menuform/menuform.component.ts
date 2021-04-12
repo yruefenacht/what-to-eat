@@ -2,7 +2,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { requireImageFormat } from '../directives/imagevalidator.directive';
+import { requireImageFormat } from './image.validator';
 import { FileValidator } from 'ngx-material-file-input';
 import { MenuForm } from '../models/menuform.model';
 
