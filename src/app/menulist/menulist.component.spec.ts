@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { MenuService } from '../services/menu/menu.service';
@@ -23,8 +25,10 @@ describe('MenulistComponent', () => {
       ],
       imports: [
         FormsModule,
+        BrowserAnimationsModule,
         ScrollingModule,
-        MatIconModule
+        MatIconModule,
+        MatInputModule
       ],
       providers: [
         { provide: MenuService, useClass: MenuMockService }

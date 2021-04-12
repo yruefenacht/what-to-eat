@@ -1,11 +1,25 @@
-@mixin flex-center {
+@mixin flex-box($justify: center, $align: center) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
 }
 
+.filter {
+  @include flex-box(space-around, center);
+  width: clamp(300px, 90vw, 1200px);
+  margin: 0 auto;
+  height: 100px;
+  &__search {
+    width: 80%;
+    font-size: 1.1em;
+    font-weight: 300;
+  }
+}
+
+$header-height: 200px;
+$filter-height: 100px;
 cdk-virtual-scroll-viewport {
-  height: calc(100vh - 200px);
+  height: calc(100vh - #{$header-height+$filter-height});
   width: 100%;
 }
 
@@ -28,7 +42,7 @@ cdk-virtual-scroll-viewport {
 }
 
 .no-menus {
-  @include flex-center();
+  @include flex-box();
   height: 45vh;
   font-size: 1em;
   font-weight: bold;
@@ -50,7 +64,7 @@ cdk-virtual-scroll-viewport {
 }
 
 .add-menu-btn {
-  @include flex-center();
+  @include flex-box();
   position: absolute; bottom: 3em; right: 3em;
   color: white;
   img {
