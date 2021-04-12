@@ -3,17 +3,26 @@
     <div class="filter--box">
       <mat-form-field class="filter__search">
         <mat-label>Search Menus...</mat-label>
-        <input matInput type="text" [(ngModel)]="searchText"/>
-        <mat-icon matSuffix *ngIf="!searchText">search</mat-icon>
-        <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+        <input matInput type="text" [formControl]="searchText"/>
+        <mat-icon matSuffix *ngIf="!searchText.value">search</mat-icon>
+        <button mat-button
+          *ngIf="searchText.value"
+          matSuffix mat-icon-button
+          aria-label="Clear"
+          (click)="searchText.reset()">
           <mat-icon>close</mat-icon>
         </button>
+      </mat-form-field>
+      <mat-form-field class="filter__tags">
+        <mat-select placeholder="Filter by tags..." [formControl]="searchTags" multiple>
+          <mat-option *ngFor="let tag of tagList" [value]="tag">{{ tag }}</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
   </div>
   <cdk-virtual-scroll-viewport *ngIf="menus | async" itemSize="190">
     <div class="menus" *ngIf="menus; else noMenus">
-      <app-menu *cdkVirtualFor="let menu of (menus | async) | search: searchText; last as isLast"
+      <app-menu *cdkVirtualFor="let menu of (menus | async) | search: searchForm.value; last as isLast"
         [menu]="menu"
         [isLast]="isLast">
       </app-menu>

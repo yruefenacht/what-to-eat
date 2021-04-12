@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { MenuService } from '../services/menu/menu.service';
@@ -24,11 +25,12 @@ describe('MenulistComponent', () => {
         SearchPipe
       ],
       imports: [
-        FormsModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
         ScrollingModule,
         MatIconModule,
-        MatInputModule
+        MatInputModule,
+        MatSelectModule
       ],
       providers: [
         { provide: MenuService, useClass: MenuMockService }

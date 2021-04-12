@@ -6,15 +6,17 @@ import { Menu } from 'src/app/models/menu.model';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(menus: Menu[], searchText: string): Menu[] {
+  transform(menus: Menu[], searchForm: any): Menu[] {
     if (!menus) {
       return [];
     }
-    if (!searchText) {
+    let { searchText, searchTags } = searchForm;
+    if (!searchText && searchTags.length === 0) {
       return menus;
     }
-
+    // TODO: continue here
     searchText = searchText.toLowerCase();
+    searchTags = searchTags.map(tag => tag.toLowerCase());
 
     return menus.filter(menu => {
 

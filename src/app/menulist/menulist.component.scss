@@ -16,8 +16,13 @@
     height: 100px;
   }
   &__search {
-    width: 80%;
-    font-size: 1.1em;
+    width: 75%;
+    font-size: 1em;
+    font-weight: 300;
+  }
+  &__tags {
+    width: 20%;
+    font-size: 1em;
     font-weight: 300;
   }
 }

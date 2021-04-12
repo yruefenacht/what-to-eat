@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MenuService } from '../services/menu/menu.service';
 import { Menu } from '../models/menu.model';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-menulist',
@@ -11,12 +12,25 @@ import { Menu } from '../models/menu.model';
 export class MenulistComponent implements OnInit {
 
   menus: Observable<Menu[]>;
-  searchText = '';
+  searchForm: FormGroup;
+  readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen', 'Dessert'];
 
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.menus = this.menuService.getMenus();
+    this.searchForm = this.formBuilder.group({
+      searchText: [''],
+      searchTags: [[]]
+    });
+  }
+
+  get searchText(): AbstractControl {
+    return this.searchForm.get('searchText');
+  }
+
+  get searchTags(): AbstractControl {
+    return this.searchForm.get('searchTags');
   }
 
 }
