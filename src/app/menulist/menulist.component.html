@@ -1,14 +1,15 @@
 <section>
   <div class="filter">
-    <mat-form-field class="filter__search">
-      <mat-label>Search Menus...</mat-label>
-      <input matInput type="text" [(ngModel)]="searchText"/>
-      <mat-icon matSuffix *ngIf="!searchText">search</mat-icon>
-      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    
+    <div class="filter--box">
+      <mat-form-field class="filter__search">
+        <mat-label>Search Menus...</mat-label>
+        <input matInput type="text" [(ngModel)]="searchText"/>
+        <mat-icon matSuffix *ngIf="!searchText">search</mat-icon>
+        <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
   </div>
   <cdk-virtual-scroll-viewport itemSize="190">
     <div class="menus" *ngIf="menus; else noMenus">

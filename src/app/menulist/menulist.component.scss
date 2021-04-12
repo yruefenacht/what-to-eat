@@ -5,10 +5,16 @@
 }
 
 .filter {
-  @include flex-box(space-around, center);
-  width: clamp(300px, 90vw, 1200px);
-  margin: 0 auto;
-  height: 100px;
+  width: 100%;
+  box-shadow: 0px 3px 8px -5px #aaa;
+  position: relative;
+  z-index: 1;
+  &--box {
+    @include flex-box(space-around, center);
+    width: clamp(300px, 90vw, 1200px);
+    margin: 0 auto;
+    height: 100px;
+  }
   &__search {
     width: 80%;
     font-size: 1.1em;
