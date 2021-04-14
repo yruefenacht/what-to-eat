@@ -5,7 +5,6 @@ import { AppFirebaseModule } from './app-firebase.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -50,7 +49,6 @@ import { SearchPipe } from './services/pipe/search.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ScrollingModule,
     MatButtonModule,
     MatIconModule,
     MatInputModule,

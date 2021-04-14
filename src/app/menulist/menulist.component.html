@@ -20,20 +20,20 @@
       </mat-form-field>
     </div>
   </div>
-  <cdk-virtual-scroll-viewport *ngIf="menus | async" itemSize="190">
-    <div class="menus" *ngIf="menus; else noMenus">
-      <app-menu *cdkVirtualFor="let menu of (menus | async) | search: searchForm.value; last as isLast"
+  <div class="menus" *ngIf="(menus | async) as menus; else menusLoading">
+    <div class="menus__list" *ngIf="menus.length !== 0; else menusEmpty">
+      <app-menu *ngFor="let menu of menus | search: searchForm.value; last as isLast"
         [menu]="menu"
         [isLast]="isLast">
       </app-menu>
     </div>
-  </cdk-virtual-scroll-viewport>
-  <ng-template #noMenus>
-    <div class="no-menus">
-      No Menus
-    </div>
+    <ng-template #menusEmpty>
+      <div class="menus__empty">No Menus</div>
+    </ng-template>
+  </div>
+  <ng-template #menusLoading>
+    <mat-spinner [strokeWidth]="5"></mat-spinner>
   </ng-template>
-  <mat-spinner *ngIf="(menus | async) === null" [strokeWidth]="5"></mat-spinner>
   <button mat-fab class="add-menu-btn"  color="primary" routerLink="/new">
     <mat-icon aria-label="Add Menu">add</mat-icon>
   </button>

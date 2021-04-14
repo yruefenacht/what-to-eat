@@ -27,42 +27,42 @@
   }
 }
 
-$header-height: 200px;
-$filter-height: 100px;
-cdk-virtual-scroll-viewport {
-  height: calc(100vh - #{$header-height+$filter-height});
-  width: 100%;
-}
-
 mat-spinner {
   margin: 8em auto;
 }
 
+$header-height: 200px;
+$filter-height: 100px;
+
 .menus {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  height: calc(100vh - #{$header-height+$filter-height});
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  &__list {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__empty {
+    @include flex-box();
+    height: 45vh;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
 }
 @media screen and (max-width: 950px) {
-  .menus {
+  .menus__list {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (max-width: 700px) {
-  .menus {
+  .menus__list {
     grid-template-columns: 1fr;
-    padding-bottom: 3em;
   }
-}
-
-.no-menus {
-  @include flex-box();
-  height: 45vh;
-  font-size: 1em;
-  font-weight: bold;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
 }
 
 ::-webkit-scrollbar {
