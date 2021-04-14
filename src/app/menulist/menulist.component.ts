@@ -13,7 +13,9 @@ export class MenulistComponent implements OnInit {
 
   menus: Observable<Menu[]>;
   searchForm: FormGroup;
-  readonly tagList: string[] = ['Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Rohkost', 'Grill', 'Backen', 'Dessert'];
+  readonly tagList: string[] = [
+    'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
+  ];
 
   constructor(private menuService: MenuService, private formBuilder: FormBuilder) { }
 
