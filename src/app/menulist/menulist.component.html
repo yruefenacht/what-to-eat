@@ -9,7 +9,7 @@
           *ngIf="searchText.value"
           matSuffix mat-icon-button
           aria-label="Clear"
-          (click)="searchText.reset()">
+          (click)="searchText.setValue('')">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
