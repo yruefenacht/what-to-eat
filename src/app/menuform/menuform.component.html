@@ -35,6 +35,7 @@
   </mat-form-field>
 
   <mat-form-field>
+    <mat-label>Ingredients...</mat-label>
     <mat-chip-list #ingredientChips formControlName="ingredients">
       <mat-chip *ngFor="let ingredient of menuForm.value.ingredients"
         [selectable]="false"
@@ -43,7 +44,7 @@
         {{ ingredient }}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
-      <input placeholder="Ingredients..."
+      <input matInput placeholder="(Separate with commas)"
         [matChipInputFor]="ingredientChips"
         [matChipInputAddOnBlur]="true"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
