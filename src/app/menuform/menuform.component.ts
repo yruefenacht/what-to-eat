@@ -19,12 +19,15 @@ export class MenuformComponent implements OnInit {
   @Output() submitEvent = new EventEmitter<MenuForm>();
   menuForm: FormGroup;
   ingredientList: string[] = [];
+  dropZoneHovering: boolean;
   readonly maxImageSize = 10_485_760; // 10MB = 10 * 2 ^ 20
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly tagList: string[] = [
     'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
   ];
-
+  // TODO: 1. Remove ngx mat file input
+  // TODO: 2. Add mat-errors (or maybe snackbar) to image upload
+  // TODO: 3. Remove drop zone on mobile
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -49,9 +52,7 @@ export class MenuformComponent implements OnInit {
     if (this.hasImage) {
       this.menuForm.addControl('image',
         new FormControl(null, [
-          Validators.required,
-          FileValidator.maxContentSize(this.maxImageSize),
-          requireImageFormat(['image/jpeg', 'image/png'])
+          Validators.required
         ])
       );
     }
@@ -90,6 +91,14 @@ export class MenuformComponent implements OnInit {
       this.ingredientList.splice(index, 1);
       this.ingredients.setValue(this.ingredientList);
     }
+  }
+
+  dropZonetoggleHover(event: boolean): void {
+    this.dropZoneHovering = event;
+  }
+
+  dropZoneSetImage(event: File): void {
+    this.image.setValue(event);
   }
 
   get title(): AbstractControl {

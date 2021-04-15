@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
@@ -20,6 +21,7 @@ describe('MenuformComponent', () => {
         MatButtonModule,
         MatInputModule,
         MatSelectModule,
+        MatIconModule,
         MatChipsModule,
         MaterialFileInputModule,
         ReactiveFormsModule,

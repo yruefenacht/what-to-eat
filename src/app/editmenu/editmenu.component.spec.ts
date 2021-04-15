@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
@@ -29,6 +30,7 @@ describe('EditmenuComponent', () => {
         MatProgressSpinnerModule,
         MatButtonModule,
         MatInputModule,
+        MatIconModule,
         MatSelectModule,
         MatChipsModule,
         MaterialFileInputModule,

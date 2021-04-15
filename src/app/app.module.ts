@@ -27,6 +27,7 @@ import { MenuformComponent } from './menuform/menuform.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchPipe } from './services/pipe/search.pipe';
+import { DropzoneDirective } from './services/directive/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchPipe } from './services/pipe/search.pipe';
     MenuDialogComponent,
     LoginComponent,
     HeaderComponent,
-    SearchPipe
+    SearchPipe,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,

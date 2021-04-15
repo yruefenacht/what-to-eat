@@ -1,8 +1,12 @@
-form {
+@mixin flex-box($justify: center, $align: center) {
   display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+form {
+  @include flex-box();
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
   
 mat-form-field {
@@ -15,5 +19,34 @@ mat-file-upload {
 
 mat-spinner {
   margin: 8em auto;
+}
+
+.dropzone {
+  @include flex-box();
+  flex-direction: column;
+  width: clamp(300px, 90%, 500px);
+  height: 200px;
+  background: #fafafa;
+  border: 3px dotted #dee3e0;
+  &__icon {
+    @include flex-box();
+    width: 60px;
+    height: 60px;
+    background: #121013;
+    color: white;
+    border-radius: 50%;
+  }
+  &--feedback {
+    @include flex-box(space-between, center);
+    width: clamp(300px, 90%, 500px);
+    height: 50px;
+    margin: 0.5em 0 1em;
+    color: #656565;
+    border-bottom: 1px solid #dee3e0;
+    font: inherit;
+  }
+  &.hovering {
+    border-color: #121013;
+  }
 }
   
