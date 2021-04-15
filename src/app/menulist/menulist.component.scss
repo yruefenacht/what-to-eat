@@ -40,10 +40,10 @@ $filter-height: 100px;
   overflow: scroll;
   overflow-x: hidden;
   &__list {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
   }
   &__empty {
     @include flex-box();
@@ -52,16 +52,6 @@ $filter-height: 100px;
     font-weight: bold;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-  }
-}
-@media screen and (max-width: 950px) {
-  .menus__list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width: 700px) {
-  .menus__list {
-    grid-template-columns: 1fr;
   }
 }
 
