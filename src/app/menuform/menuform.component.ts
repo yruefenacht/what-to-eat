@@ -23,7 +23,7 @@ export class MenuformComponent implements OnInit {
   readonly tagList: string[] = [
     'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
   ];
-  // TODO: 1. Add mat-errors (or maybe snackbar) to image upload
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -93,8 +93,17 @@ export class MenuformComponent implements OnInit {
     this.dropZoneHovering = event;
   }
 
-  dropZoneSetImage(event: File): void {
-    this.image.setValue(event);
+  dropZoneSetImage(event: FileList): void {
+    // TODO: complete image validation and show snackbar on error
+    const file = event.item(0);
+    console.log(file);
+
+    if (file.type.split('/')[0] !== 'image') {
+      console.log(`that's not an image`);
+      return;
+    }
+
+    this.image.setValue(file);
   }
 
   get title(): AbstractControl {

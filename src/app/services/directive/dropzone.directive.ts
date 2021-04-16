@@ -5,7 +5,7 @@ import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 })
 export class DropzoneDirective {
 
-  @Output() dropped = new EventEmitter<File>();
+  @Output() dropped = new EventEmitter<FileList>();
   @Output() hovered = new EventEmitter<boolean>();
 
   constructor() { }
@@ -13,7 +13,7 @@ export class DropzoneDirective {
   @HostListener('drop', ['$event'])
   onDrop($event): void {
     $event.preventDefault();
-    this.dropped.emit($event.dataTransfer.files[0]);
+    this.dropped.emit($event.dataTransfer.files);
     this.hovered.emit(false);
   }
 
