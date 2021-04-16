@@ -2,8 +2,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { requireImageFormat } from './image.validator';
-import { FileValidator } from 'ngx-material-file-input';
 import { MenuForm } from '../models/menuform.model';
 
 @Component({
@@ -25,8 +23,7 @@ export class MenuformComponent implements OnInit {
   readonly tagList: string[] = [
     'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
   ];
-  // TODO: 1. Remove ngx mat file input
-  // TODO: 2. Add mat-errors (or maybe snackbar) to image upload
+  // TODO: 1. Add mat-errors (or maybe snackbar) to image upload
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

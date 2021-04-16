@@ -8,7 +8,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { MenuService } from '../services/menu/menu.service';
 import { MenuService as MenuMockService } from '../services/menu/menu.service.mock';
@@ -33,7 +32,6 @@ describe('EditmenuComponent', () => {
         MatIconModule,
         MatSelectModule,
         MatChipsModule,
-        MaterialFileInputModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterTestingModule

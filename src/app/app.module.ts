@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { AppComponent } from './app.component';
 import { AddMenuComponent } from './addmenu/addmenu.component';
@@ -60,8 +59,7 @@ import { DropzoneDirective } from './services/directive/dropzone.directive';
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatCardModule,
-    MaterialFileInputModule
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MenuformComponent } from './menuform.component';
@@ -23,7 +22,6 @@ describe('MenuformComponent', () => {
         MatSelectModule,
         MatIconModule,
         MatChipsModule,
-        MaterialFileInputModule,
         ReactiveFormsModule,
         BrowserAnimationsModule
       ]
