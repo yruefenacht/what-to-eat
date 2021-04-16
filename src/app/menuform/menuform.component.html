@@ -9,18 +9,16 @@
     <div class="dropzone__icon">
       <mat-icon>cloud_upload</mat-icon>
     </div>
-    <p>Drag and drop image</p>
+    <div class="dropzone__feedback" *ngIf="hasImage">
+      <span *ngIf="image.value; else noImageSelected">{{ image.value.name }}</span>
+      <ng-template #noImageSelected>Upload fitting image</ng-template>
+      <button mat-icon-button matSuffix *ngIf="image.value" (click)="image.setValue(null)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
     <button mat-stroked-button type="button" (click)="fileUpload.click()">
       <input type="file" (change)="dropZoneSetImage($event.target.files[0])" #fileUpload hidden>
-      Or choose image
-    </button>
-  </div>
-
-  <div class="dropzone--feedback" *ngIf="hasImage">
-    <span *ngIf="image.value; else noImageSelected">{{ image.value.name }}</span>
-    <ng-template #noImageSelected>No image selected</ng-template>
-    <button mat-icon-button matSuffix *ngIf="image.value" (click)="image.setValue(null)">
-      <mat-icon>clear</mat-icon>
+      Select image
     </button>
   </div>
 

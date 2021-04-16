@@ -27,7 +27,6 @@ export class MenuformComponent implements OnInit {
   ];
   // TODO: 1. Remove ngx mat file input
   // TODO: 2. Add mat-errors (or maybe snackbar) to image upload
-  // TODO: 3. Remove drop zone on mobile
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
