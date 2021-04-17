@@ -2,6 +2,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MenuForm } from '../models/menuform.model';
 
 @Component({
@@ -24,7 +25,7 @@ export class MenuformComponent implements OnInit {
     'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
   ];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.menuForm = this.formBuilder.group({
@@ -44,7 +45,6 @@ export class MenuformComponent implements OnInit {
       ]],
       tags: [[]],
     });
-
     if (this.hasImage) {
       this.menuForm.addControl('image',
         new FormControl(null, [
@@ -52,7 +52,6 @@ export class MenuformComponent implements OnInit {
         ])
       );
     }
-
     if (this.menu) {
       this.ingredientList = this.menu.ingredients;
       this.menuForm.patchValue({
@@ -94,15 +93,15 @@ export class MenuformComponent implements OnInit {
   }
 
   dropZoneSetImage(event: FileList): void {
-    // TODO: complete image validation and show snackbar on error
     const file = event.item(0);
-    console.log(file);
-
     if (file.type.split('/')[0] !== 'image') {
-      console.log(`that's not an image`);
+      this.snackBar.open('Allowed formats: PNG, JPG, JPEG', 'Ok');
       return;
     }
-
+    if (file.size > this.maxImageSize) {
+      this.snackBar.open('Total size must not exceed 10MB', 'Ok');
+      return;
+    }
     this.image.setValue(file);
   }
 

@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -33,6 +34,7 @@ describe('AddMenuComponent', () => {
         MatIconModule,
         MatSelectModule,
         MatChipsModule,
+        MatSnackBarModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterTestingModule

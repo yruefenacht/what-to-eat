@@ -5,6 +5,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MenuformComponent } from './menuform.component';
@@ -22,6 +23,7 @@ describe('MenuformComponent', () => {
         MatSelectModule,
         MatIconModule,
         MatChipsModule,
+        MatSnackBarModule,
         ReactiveFormsModule,
         BrowserAnimationsModule
       ]

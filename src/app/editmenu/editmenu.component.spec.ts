@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +33,7 @@ describe('EditmenuComponent', () => {
         MatIconModule,
         MatSelectModule,
         MatChipsModule,
+        MatSnackBarModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterTestingModule
