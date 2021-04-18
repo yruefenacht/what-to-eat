@@ -16,7 +16,7 @@ export class MenulistComponent implements OnInit {
   readonly tagList: string[] = [
     'Vegan', 'Vegetarisch', 'Gesund', 'Beliebt', 'Einfach', 'Rohkost', 'Grill', 'Backen', 'Dessert'
   ];
-  // TODO: Image upload border color feedback
+
   constructor(private menuService: MenuService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

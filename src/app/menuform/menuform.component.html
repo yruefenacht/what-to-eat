@@ -5,9 +5,13 @@
     appDropzone
     (hovered)="dropZonetoggleHover($event)"
     (dropped)="dropZoneSetImage($event)"
-    [class.hovering]="dropZoneHovering">
-    <div class="dropzone__icon">
-      <mat-icon>cloud_upload</mat-icon>
+    [class.hovering]="dropZoneHovering"
+    [class.success]="image.value">
+    <div class="dropzone__icon" [class.success]="image.value">
+      <mat-icon *ngIf="image.value; else dropZoneIconDefault">done</mat-icon>
+      <ng-template #dropZoneIconDefault>
+        <mat-icon>cloud_upload</mat-icon>
+      </ng-template>
     </div>
     <div class="dropzone__feedback">
       <span *ngIf="image.value; else noImageSelected">{{ image.value.name }}</span>
@@ -58,7 +62,8 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Duration [min]" [value]="0" formControlName="duration">
+    <input matInput placeholder="Duration" [value]="0" formControlName="duration">
+    <span matSuffix>&nbsp;min</span>
     <mat-error *ngIf="duration.errors?.min && duration.touched">
       Duration is unrealistically small
     </mat-error>

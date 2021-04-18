@@ -21,6 +21,7 @@ mat-spinner {
   margin: 8em auto;
 }
 
+$dropzone-success: #71a95b;
 .dropzone {
   @include flex-box();
   flex-direction: column;
@@ -35,6 +36,9 @@ mat-spinner {
     background: #121013;
     color: white;
     border-radius: 50%;
+    &.success {
+      background: $dropzone-success;
+    }
   }
   &__feedback {
     @include flex-box(space-between, center);
@@ -44,6 +48,9 @@ mat-spinner {
   }
   &.hovering {
     border-color: #121013;
+  }
+  &.success {
+    border-color: $dropzone-success;
   }
 }
 @media screen and (max-width: 768px) {
